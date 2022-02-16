@@ -1,0 +1,29 @@
+Student ID: 102234
+Semester:   962
+  Unit:  CSS
+  Unit ID: ICT_100
+  Credits: 3
+  Marks: 99
+
+  Unit:  ARMOR
+  Unit ID: ICT_101
+  Credits: 1
+  Marks: 98
+
+  Unit:  RECON
+  Unit ID: ICT_102
+  Credits: 4
+  Marks: 97
+
+  Unit:  SIGNALS
+  Unit ID: ICT_283
+  Credits: 3
+  Marks: 96
+
+  Unit:  GUARDS
+  Unit ID: ICT_285
+  Credits: 6
+  Marks: 95
+
+Number of courses = 5
+Total credits     = 17
