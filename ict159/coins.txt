@@ -1,0 +1,10 @@
+Jane 30
+John 50
+James 55
+Jenny 95
+Jamie 40
+Jess 10
+Julia 85
+Jakol 60
+Johnson 35
+Geralt 25

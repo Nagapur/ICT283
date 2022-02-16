@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1641627075 source:c:\users\lim seng wei\desktop\murdoch\ict 283\ict159\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+
+1641746063 source:c:\users\sengw\desktop\ict 283\ict159\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+
