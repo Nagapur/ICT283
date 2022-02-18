@@ -12,8 +12,8 @@ Unit::Unit()
 Unit::Unit( string nam, string xID,
                 unsigned cred )
 {
-  nam=unitName;
-  xID = unitID;
+  unitName=nam;
+  unitID = xID;
   credits = cred;
 }
 

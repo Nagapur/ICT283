@@ -1,5 +1,6 @@
 #include "RESULT.H"
 #include "UNIT.H"
+#include "DATE.H"
 #include <sstream>
 Result::Result()
 {
@@ -10,11 +11,12 @@ Result::Result()
 
 }
 
-Result::Result(Unit &unit, float mark)
+Result::Result(Unit &unit, float mark, Date &date)
 {
 
-    unit = unitobj;
-    mark=marks;
+    unitobj= unit;
+    marks=mark;
+    dateobj=date;
 
 }
 
@@ -84,7 +86,8 @@ ostream & operator <<( ostream & os, const Result & Re )
 
 
 
-    os << Re.unitobj <<"  Marks: " << /*Re.GetMarks()*/ Re.marks<< '\n';
+    os << Re.unitobj <<"  Marks: " <<  Re.marks<< '\n'
+        <<" Date: "<< Re.dateobj<<'\n';
 
     /* os  << "Unit ID:  " << Re.ID << '\n'
         << "Unit Name: " << Re.name << '\n'

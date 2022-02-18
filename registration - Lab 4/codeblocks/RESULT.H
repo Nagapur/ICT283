@@ -1,6 +1,7 @@
 #ifndef RESULT_H_INCLUDED
 #define RESULT_H_INCLUDED
 #include "UNIT.H"
+#include "DATE.H"
 #include <iostream>
 #include <string.h>
 
@@ -20,7 +21,7 @@ public:
     unsigned GetCredits() const;
     void setMarks( float &marks);*/
     Result();
-    Result(Unit &unit, float mark);
+    Result(Unit &unit, float mark, Date &date);
         /*Result(const char * IDnumber, char * nam, unsigned cred, unsigned mark);*/
         // Construct a result from a ID, name, credits and marks.
 
@@ -44,6 +45,7 @@ public:
 
 private:
 Unit unitobj;
+Date dateobj;
 /*char ID[IDNameSize];
 char name[resultsNameSize];*/
 float marks;

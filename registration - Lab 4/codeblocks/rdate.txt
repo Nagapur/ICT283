@@ -1,0 +1,42 @@
+Student ID: 102234
+Semester:   962
+  Unit:  
+CSS
+  Unit ID: ICT 100
+  Credits: 3
+  Marks: 99
+ Date: 746983475017826
+
+
+  Unit:  
+  Unit ID: 10
+  Credits: 11
+  Marks: 1993
+ Date: 746983475017826
+
+
+  Unit:  
+ARMOR
+  Unit ID: ICT 101
+  Credits: 1
+  Marks: 98
+ Date: 746983475017826
+
+
+  Unit:  
+  Unit ID: 10
+  Credits: 12
+  Marks: 1993
+ Date: 746983475017826
+
+
+  Unit:  
+RECON
+  Unit ID: ICT 102
+  Credits: 4
+  Marks: 97
+ Date: 747009075017826
+
+
+Number of courses = 5
+Total credits     = 31

@@ -19,13 +19,13 @@ using namespace std;
 
 int main()
 {
-  ifstream infile( "newinput.txt" );
+  ifstream infile( "inputanddate.txt" );
   if( !infile ) return -1;
 
   Registration R;
   infile >> R;
 
-  ofstream ofile( "newoutput.txt" );
+  ofstream ofile( "rdate.txt" );
 
 // Use a debugger and track down the calls made "behind the scene"
   ofile << R

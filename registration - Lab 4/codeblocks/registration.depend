@@ -91,7 +91,7 @@
 	<string.h>
 	<cstring>
 
-1644934546 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\main.cpp
+1645200155 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\main.cpp
 	<iostream>
 	<fstream>
 	"unit.h"
@@ -105,23 +105,35 @@
 	<iostream>
 	"result.h"
 
-1645117154 c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\result.h
+1645200560 c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\result.h
 	"UNIT.H"
+	"DATE.H"
 	<iostream>
 	<string.h>
 
 1644662160 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\regist.cpp
 	"regist.h"
 
-1645112780 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\unit.cpp
+1645196081 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\unit.cpp
 	"UNIT.H"
 	<iostream>
 	<string.h>
 	<cstring>
 	<sstream>
 
-1645117363 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\result.cpp
+1645200817 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\result.cpp
 	"RESULT.H"
 	"UNIT.H"
+	"DATE.H"
+	<sstream>
+
+1645200991 c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\date.h
+	<iostream>
+	<string.h>
+
+1645203266 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\date.cpp
+	"DATE.H"
+	<iostream>
+	<string.h>
 	<sstream>
 

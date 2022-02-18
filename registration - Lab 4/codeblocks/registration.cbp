@@ -34,6 +34,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="DATE.CPP" />
+		<Unit filename="DATE.H" />
 		<Unit filename="MAIN.CPP" />
 		<Unit filename="REGIST.CPP" />
 		<Unit filename="REGIST.H" />
