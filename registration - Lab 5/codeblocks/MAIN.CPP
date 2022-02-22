@@ -60,31 +60,61 @@ int main()
 string filename;
 ifstream input;
 string topline;
+string token;
+string rows;
+
 filename = "MetData-31-3.csv";
 
 input.open(filename.c_str());
 //input.ignore(500,'\n');
 getline(input,topline, '\n');
-column.push(topline);
-column.print();
-//cout<<topline<<'\n';
 
-string line,line2, readDay, readMonth, readYear, readHour, readMinute;
-float sp;
+stringstream firstrow ;
+//ofstream ofile( "WindSpeedTRIAL.txt" );
+firstrow<<topline;
+while(getline(firstrow,token, ','))
+      {
+          column.push(token);
+      }
 
-while(!input.eof())
+
+//string line,line2, readDay, readMonth, readYear, readHour, readMinute;
+//float sp;
+
+//while(!input.eof())
+    while(getline(input,rows))
 {
+    //if(input.good())
 
+    cout<<"first reading"<<" "<<rows<<'\n';
     WindLogType w1;
     input >> w1;
-  windlog.push(w1);
+    windlog.push(w1);
 
    ofstream ofile( "WindSpeedTRIAL.txt" );
 
+      for(int z=0; z<column.getcapacity();z++) // Finding columns that is required
+   {
+       if (column.get(z) == "WAST")
+       {
+        cout<<column.get(z);
+        ofile<<column.get(z);
+       }
+       if (column.get(z) == "S")
+       {
+        cout<<" "<<column.get(z)<<'\n';
+        ofile<<" "<<column.get(z)<<'\n';
+       }
+
+   }
+
    for(int i = 0; i<windlog.getcapacity(); i++)
-    ofile << windlog.get(i);
+   {
+       ofile << windlog.get(i);
+   }
 
     cout<<w1; // show output
+
 
     /*int p =input.peek();
     cout<<p;
@@ -191,20 +221,36 @@ if (!data.is_open())
   cout <<"TESTTIME:"<< testHour<<endl;
   cout <<"TESTTIME:"<<testMin<<endl;*/
 
-  return 0;
-}
 
+   /*for (int x =0; x<10;x++)  // ***EXTRACT SPEED FROM VECTOR
+    {
+        float xSpeed=0;
+        xSpeed = windlog.get(x).speed;
+
+
+        if (xSpeed == 14.9f)
+        {
+        cout<<"SPEED FOUND"<<windlog.get(x).speed;
+
+        }
+
+
+    }
+  return 0;
+}*/
+
+}
 istream &operator >>(istream & input, WindLogType & Te)
 {
 
     //vectorClass<WindLogType> windlog;
 
 
-/*string SaveInput;
-  getline(input,SaveInput, ' ');
-  stringstream container (SaveInput);
-  int x;
-  container >> x;
+    /*string SaveInput;
+    getline(input,SaveInput, ' ');
+    stringstream container (SaveInput);
+    int x;
+    container >> x;
     Te.speed=x;*/
 
 input>>Te.d>>Te.t>>Te.speed;
