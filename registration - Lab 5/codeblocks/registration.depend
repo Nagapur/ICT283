@@ -1,0 +1,205 @@
+# depslib dependency file v1.0
+830090216 source:c:\users\rai\desktop\new folder\ict209\practice\registration\codeblocks\course.cpp
+	"course.h"
+
+1235478704 c:\users\rai\desktop\new folder\ict209\practice\registration\codeblocks\course.h
+	<iostream>
+	<string.h>
+
+1235478734 source:c:\users\rai\desktop\new folder\ict209\practice\registration\codeblocks\main.cpp
+	<iostream>
+	<fstream>
+	"course.h"
+	"regist.h"
+
+1235478688 c:\users\rai\desktop\new folder\ict209\practice\registration\codeblocks\regist.h
+	<iostream>
+	"course.h"
+
+1235476234 source:c:\users\rai\desktop\new folder\ict209\practice\registration\codeblocks\regist.cpp
+	"regist.h"
+
+830090216 source:\\sphinx\s900391h\units\ict209\_7y9uq~q\.old15\practice\session02\registration\codeblocks\course.cpp
+	"course.h"
+
+1235478704 \\sphinx\s900391h\units\ict209\_7y9uq~q\.old15\practice\session02\registration\codeblocks\course.h
+	<iostream>
+	<string.h>
+
+1235478734 source:\\sphinx\s900391h\units\ict209\_7y9uq~q\.old15\practice\session02\registration\codeblocks\main.cpp
+	<iostream>
+	<fstream>
+	"course.h"
+	"regist.h"
+
+1235478688 \\sphinx\s900391h\units\ict209\_7y9uq~q\.old15\practice\session02\registration\codeblocks\regist.h
+	<iostream>
+	"course.h"
+
+1235476234 source:\\sphinx\s900391h\units\ict209\_7y9uq~q\.old15\practice\session02\registration\codeblocks\regist.cpp
+	"regist.h"
+
+1457336386 source:c:\users\sengw\desktop\murdoch\ict 283\registration\codeblocks\course.cpp
+	"course.h"
+
+1457336962 c:\users\sengw\desktop\murdoch\ict 283\registration\codeblocks\course.h
+	<iostream>
+	<string.h>
+
+1457337038 source:c:\users\sengw\desktop\murdoch\ict 283\registration\codeblocks\main.cpp
+	<iostream>
+	<fstream>
+	"course.h"
+	"regist.h"
+
+1457336898 c:\users\sengw\desktop\murdoch\ict 283\registration\codeblocks\regist.h
+	<iostream>
+	"course.h"
+
+1457336550 source:c:\users\sengw\desktop\murdoch\ict 283\registration\codeblocks\regist.cpp
+	"regist.h"
+
+1644934546 source:c:\users\sengw\desktop\ict 283\registration\codeblocks\main.cpp
+	<iostream>
+	<fstream>
+	"unit.h"
+	"regist.h"
+
+1645021776 c:\users\sengw\desktop\ict 283\registration\codeblocks\unit.h
+	<iostream>
+	<string.h>
+
+1644683977 c:\users\sengw\desktop\ict 283\registration\codeblocks\regist.h
+	<iostream>
+	"result.h"
+
+1644662160 source:c:\users\sengw\desktop\ict 283\registration\codeblocks\regist.cpp
+	"regist.h"
+
+1645020962 source:c:\users\sengw\desktop\ict 283\registration\codeblocks\result.cpp
+	"RESULT.H"
+	"UNIT.H"
+
+1645023114 c:\users\sengw\desktop\ict 283\registration\codeblocks\result.h
+	"UNIT.H"
+	<iostream>
+	<string.h>
+
+1645021776 source:c:\users\sengw\desktop\ict 283\registration\codeblocks\unit.cpp
+	"UNIT.H"
+	<iostream>
+	<string.h>
+	<cstring>
+
+1645423240 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\main.cpp
+	<iostream>
+	<fstream>
+	"unit.h"
+	"regist.h"
+	"DATE.H"
+
+1645116921 c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\unit.h
+	<iostream>
+	<string.h>
+
+1644683977 c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\regist.h
+	<iostream>
+	"result.h"
+
+1645422421 c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\result.h
+	"UNIT.H"
+	"DATE.H"
+	<iostream>
+	<string.h>
+
+1644662160 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\regist.cpp
+	"regist.h"
+
+1645422421 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\unit.cpp
+	"UNIT.H"
+	<iostream>
+	<string.h>
+	<cstring>
+	<sstream>
+
+1645422421 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\result.cpp
+	"RESULT.H"
+	"UNIT.H"
+	"DATE.H"
+	<sstream>
+
+1645424039 c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\date.h
+	<iostream>
+	<string.h>
+
+1645424039 source:c:\users\sengw\desktop\ict 283\registration - lab 4\codeblocks\date.cpp
+	"DATE.H"
+	<iostream>
+	<string.h>
+	<sstream>
+
+1645500697 source:c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\date.cpp
+	"DATE.H"
+	<iostream>
+	<string.h>
+	<sstream>
+
+1645500660 c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\date.h
+	<iostream>
+	<string.h>
+
+1645512193 source:c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\main.cpp
+	<iostream>
+	<fstream>
+	"unit.h"
+	"regist.h"
+	"DATE.H"
+	"TIME.H"
+	"VECTOR.H"
+	<string.h>
+	<sstream>
+	<bits/stdc++.h>
+
+1645116921 c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\unit.h
+	<iostream>
+	<string.h>
+
+1644683977 c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\regist.h
+	<iostream>
+	"result.h"
+
+1645422421 c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\result.h
+	"UNIT.H"
+	"DATE.H"
+	<iostream>
+	<string.h>
+
+1644662160 source:c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\regist.cpp
+	"regist.h"
+
+1645422421 source:c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\result.cpp
+	"RESULT.H"
+	"UNIT.H"
+	"DATE.H"
+	<sstream>
+
+1645422421 source:c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\unit.cpp
+	"UNIT.H"
+	<iostream>
+	<string.h>
+	<cstring>
+	<sstream>
+
+1645500660 source:c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\time.cpp
+	"TIME.H"
+	<iostream>
+	<string.h>
+	<sstream>
+
+1645500660 c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\time.h
+	<iostream>
+	<string.h>
+
+1645437163 c:\users\sengw\desktop\ict 283\registration - lab 5\codeblocks\vector.h
+	<iostream>
+
