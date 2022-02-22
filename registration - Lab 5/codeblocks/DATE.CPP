@@ -68,7 +68,7 @@ istream & operator >>( istream & input, Date & D )
 {
 
 
-  string SaveInput;
+  /*string SaveInput;
   getline(input,SaveInput, '/');
   stringstream container (SaveInput);
   int x;
@@ -88,7 +88,7 @@ istream & operator >>( istream & input, Date & D )
   stringstream container3 (SaveInput);
   int z;
   container3 >> z;
-  D.SetYear(z);
+  D.SetYear(z);*/
 
   return input;
 }
@@ -103,7 +103,7 @@ ostream & operator <<( ostream & os, const Date & D )
     D.GetYear(year);
 
 
-  os <<"Date:"<< day<<"/"<< month<<"/"<<year<<" ";
+  os <<"Date:"<< day<<"/"<< month<<"/"<<year;
 
   return os;
 }

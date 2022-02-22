@@ -50,7 +50,7 @@ void Time::SetMin(const int &xMin)
 
 istream & operator >>( istream & input, Time & T )
 {
-  string SaveInput;
+ /* string SaveInput;
   getline(input,SaveInput, ':');
   stringstream container (SaveInput);
   int x;
@@ -62,7 +62,7 @@ istream & operator >>( istream & input, Time & T )
   stringstream container2 (SaveInput);
   int y;
   container2 >> y;
-  T.SetMin(y);
+  T.SetMin(y);*/
 
   return input;
 }
@@ -76,7 +76,7 @@ ostream & operator <<( ostream & os, const Time & T )
     T.GetMin(m_min);
 
 
-  os <<"Time:"<<m_hour<<":"<< m_min<<" ";
+  os <<"Time:"<<m_hour<<":"<< m_min;
 
   return os;
 }

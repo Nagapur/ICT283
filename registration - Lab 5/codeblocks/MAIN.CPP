@@ -14,6 +14,7 @@
 #include <string.h>
 #include <sstream>
 #include <bits/stdc++.h>
+#include <unordered_set>
 
 using namespace std;
 
@@ -38,7 +39,7 @@ int main()
 {
     vectorClass<WindLogType> windlog;
     vectorClass<string> column;
-    WindLogType w2;
+    WindLogType w1;
 
   //  string xx = "3";
    // int zz = stoi(xx);
@@ -62,8 +63,9 @@ ifstream input;
 string topline;
 string token;
 string rows;
-
-filename = "MetData-31-3.csv";
+string temp;
+int IndexOfS=0;
+filename = "MetData-31-3 - Original.csv";
 
 input.open(filename.c_str());
 //input.ignore(500,'\n');
@@ -74,22 +76,138 @@ stringstream firstrow ;
 firstrow<<topline;
 while(getline(firstrow,token, ','))
       {
+          //cout<<"TOKEN"<<token<<endl;
           column.push(token);
       }
 
+  for(int z=0; z<column.getcapacity();z++) // Finding columns that is required
+   {
 
+       if (column.get(z) == "S")
+       {
+
+        IndexOfS = z; // finding the index of column S
+
+       }
+
+   }
 //string line,line2, readDay, readMonth, readYear, readHour, readMinute;
 //float sp;
 
 //while(!input.eof())
-    while(getline(input,rows))
+   while(getline(input,rows))
+   //while(input>>rows)
+   //while(true)
 {
     //if(input.good())
 
-    cout<<"first reading"<<" "<<rows<<'\n';
+    //cout<<"first reading"<<" "<<rows<<'\n';
     WindLogType w1;
+
+    //////////////////////////////////////
+  getline(input,rows, '/');
+  stringstream container (rows);
+  int x;
+  container >> x;
+ //
+ w1.d.SetDay(x);
+  //w1.d.SetDay(stoi(rows));
+
+   getline(input,rows, '/');
+  stringstream container2 (rows);
+  int y;
+  container2 >> y;
+  w1.d.SetMonth(y);
+
+  getline(input,rows , ' ');
+  stringstream container3 (rows);
+  int z;
+  container3 >> z;
+  w1.d.SetYear(z);
+
+  getline(input,rows, ':');
+  stringstream container4 (rows);
+  int a;
+  container4 >> a;
+  w1.t.SetHour(a);
+
+
+  getline(input,rows, ',');
+  stringstream container5 (rows);
+  int b;
+  container5 >> b;
+  w1.t.SetMin(b);
+
+ /* for(int k = 0; k < 9; k++) // total is 17 columns, S index is saved in variable
+  {
+    getline(input,rows, ',');
+    int counter =0;
+    counter=counter+1;
+    cout<<counter<<endl;
+
+ if(counter == IndexOfS+1 ) // Need +1 Index because Header columns are 1 less column shorter than the data rows
+    {
+        cout<<"IS K FOUND";
+        getline(input,rows, ',');
+        float temp10 = stoi(rows);
+         w1.speed = temp10;
+    }
+else
+{
+    string SaveInput;
+    getline(input,rows, ',');
+    int temp1 = stoi(rows);
+}*/
+
+
+    /*getline(input,rows, ',');
+    int temp1 = stoi(rows);
+    getline(input,rows, ',');
+    int temp2 = stoi(rows);
+    getline(input,rows, ',');
+    int temp3 = stoi(rows);
+    getline(input,rows, ',');
+    int temp4 = stoi(rows);
+    getline(input,rows, ',');
+    int temp5 = stoi(rows);
+    getline(input,rows, ',');
+    int temp6 = stoi(rows);
+    getline(input,rows, ',');
+    int temp7 = stoi(rows);
+    getline(input,rows, ',');
+    int temp8 = stoi(rows);
+    getline(input,rows, ',');
+    int temp9 = stoi(rows);
+
+    getline(input,rows, ',');
+    float temp10 = stoi(rows);
+    w1.speed = temp10;*/
+
+
+
+    for(int k = 0; k < 8; k++)
+    {
+        getline(input,rows, ',');
+       //int temp1 = stoi(rows);
+    }
+
+    getline(input,rows, ',');
+    float temp10 = stoi(rows);
+    w1.speed = temp10;
+
     input >> w1;
     windlog.push(w1);
+
+    /*getline(input,rows, ',');
+      getline(input,rows, ',');
+       getline(input,rows, ',');
+        getline(input,rows, ',');
+         getline(input,rows, ',');
+          getline(input,rows,',');*/
+
+    //////////////////////////////////////
+    /*input >> w1;
+    windlog.push(w1);*/
 
    ofstream ofile( "WindSpeedTRIAL.txt" );
 
@@ -97,12 +215,12 @@ while(getline(firstrow,token, ','))
    {
        if (column.get(z) == "WAST")
        {
-        cout<<column.get(z);
+        //cout<<column.get(z);
         ofile<<column.get(z);
        }
        if (column.get(z) == "S")
        {
-        cout<<" "<<column.get(z)<<'\n';
+        //cout<<" "<<column.get(z)<<'\n';
         ofile<<" "<<column.get(z)<<'\n';
        }
 
@@ -253,6 +371,60 @@ istream &operator >>(istream & input, WindLogType & Te)
     container >> x;
     Te.speed=x;*/
 
+  /*  string SaveInput;
+    getline(input,SaveInput, '/');
+  stringstream container (SaveInput);
+  int x;
+  container >> x;
+  Te.d.SetDay(x);
+
+   getline(input,SaveInput, '/');
+  stringstream container2 (SaveInput);
+  int y;
+  container2 >> y;
+  Te.d.SetMonth(y);
+
+  getline(input,SaveInput , ' ');
+  stringstream container3 (SaveInput);
+  int z;
+  container3 >> z;
+  Te.d.SetYear(z);
+
+  getline(input,SaveInput, ':');
+  stringstream container4 (SaveInput);
+  int a;
+  container >> a;
+  Te.t.SetHour(a);
+
+
+  getline(input,SaveInput, ',');
+  stringstream container5 (SaveInput);
+  int b;
+  container2 >> b;
+  Te.t.SetMin(b);
+
+    getline(input,SaveInput, ',');
+    int temp1 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp2 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp3 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp4 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp5 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp6 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp7 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp8 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp9 = stoi(SaveInput);
+    getline(input,SaveInput, ',');
+    int temp10 = stoi(SaveInput);
+    Te.speed = temp10;*/
+
 input>>Te.d>>Te.t>>Te.speed;
 
 /*for(unsigned i = 0; i < 10; i++)
@@ -266,7 +438,7 @@ return input;
 
 ostream & operator <<( ostream & os, const WindLogType & Te )
 {
-    os<<Te.d<<Te.t<<"Speed: "<<Te.speed<<'\n';
+    os<<Te.d<<" "<<Te.t<<" "<<"Speed: "<<Te.speed<<'\n';
 
   return os;
 }
