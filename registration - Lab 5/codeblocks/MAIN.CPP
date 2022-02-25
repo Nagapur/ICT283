@@ -65,9 +65,10 @@ string token;
 string rows;
 string temp;
 int IndexOfS=0;
-filename = "MetData-31-3 - Original.csv";
 
+filename = "MetData-31-3 - Original.csv";
 input.open(filename.c_str());
+
 //input.ignore(500,'\n');
 getline(input,topline, '\n');
 
@@ -94,8 +95,9 @@ while(getline(firstrow,token, ','))
 //string line,line2, readDay, readMonth, readYear, readHour, readMinute;
 //float sp;
 
+    // while( !input ) return -1;
 //while(!input.eof())
-   while(getline(input,rows))
+   while(getline(input,rows,'/'))
    //while(input>>rows)
    //while(true)
 {
@@ -105,7 +107,7 @@ while(getline(firstrow,token, ','))
     WindLogType w1;
 
     //////////////////////////////////////
-  getline(input,rows, '/');
+  //getline(temp1,rows, '/');
   stringstream container (rows);
   int x;
   container >> x;
@@ -195,9 +197,10 @@ else
     float temp10 = stoi(rows);
     w1.speed = temp10;
 
+
     input >> w1;
     windlog.push(w1);
-
+    getline(input,rows); // SKIP ALL REMAINING COLUMNS
     /*getline(input,rows, ',');
       getline(input,rows, ',');
        getline(input,rows, ',');

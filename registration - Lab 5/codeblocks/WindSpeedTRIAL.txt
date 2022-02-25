@@ -1,4 +1,5 @@
 WAST S
+Date:31/3/2016 Time:9:0 Speed: 6
 Date:31/3/2016 Time:9:10 Speed: 5
 Date:31/3/2016 Time:9:20 Speed: 5
 Date:31/3/2016 Time:9:30 Speed: 5
@@ -87,7 +88,6 @@ Date:31/3/2016 Time:23:10 Speed: 4
 Date:31/3/2016 Time:23:20 Speed: 4
 Date:31/3/2016 Time:23:30 Speed: 5
 Date:31/3/2016 Time:23:40 Speed: 5
-Date:31/3/2016 Time:23:50 Speed: 3
 Date:31/3/2016 Time:23:50 Speed: 3
 Date:31/3/2016 Time:23:50 Speed: 3
 Date:31/3/2016 Time:23:50 Speed: 3
