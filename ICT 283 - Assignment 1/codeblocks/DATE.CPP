@@ -19,11 +19,6 @@ Date::Date(int xDay,int xMonth, int xYear)
     year = xYear;
 }
 
-void Date::GetDay(int &xDay) const
-{
-    xDay = day;
-}
-
  int Date::GettingDay() const
 {
     return day;
@@ -32,11 +27,6 @@ void Date::GetDay(int &xDay) const
 void Date::SetDay(const unsigned &xDay)
 {
     day = xDay;
-}
-
-void Date::GetMonth(int &xMonth) const
-{
-    xMonth = month;
 }
 
 int Date::GettingMonth() const
@@ -49,11 +39,6 @@ void Date::SetMonth(const int &xMonth)
     month = xMonth;
 }
 
-void Date::GetYear(int &xYear) const
-{
-    xYear = year;
-}
-
 int  Date::GettingYear() const
 {
     return year;
@@ -64,23 +49,23 @@ void Date::SetYear(const int &xYear)
     year = xYear;
 }
 
-istream & operator >>( istream & input, Date & D )
+/*istream & operator >>( istream & input, Date & D )
 {
 
   return input;
-}
+}*/
 
 ostream & operator <<( ostream & os, const Date & D )
 {
-    int day;
+    /*int day;
     int month;
     int year;
     D.GetDay(day);
     D.GetMonth(month);
-    D.GetYear(year);
+    D.GetYear(year);*/
 
 
-  os <<"Date:"<< day<<"/"<< month<<"/"<<year;
+  os <<"Date:"<<D.GettingDay()<<"/"<< D.GettingMonth()<<"/"<<D.GettingYear();
 
   return os;
 }
