@@ -1,0 +1,10 @@
+<map id="WriteToCSV" name="WriteToCSV">
+<area shape="rect" id="node1" title=" " alt="" coords="5,157,100,184"/>
+<area shape="rect" id="node2" href="$class_vector.html#a496d574121188d3a09cbb2313fd3dcad" title="Getter for vector." alt="" coords="199,5,280,32"/>
+<area shape="rect" id="node3" href="$class_wind_log_type.html#a53f1c6379b634b673dd8d88ce8936c77" title="Getter for value of month." alt="" coords="156,56,323,83"/>
+<area shape="rect" id="node4" href="$class_vector.html#a0151d4cb23bc2c5474418beb125829ca" title="Getter for the array." alt="" coords="182,107,297,133"/>
+<area shape="rect" id="node5" href="$class_wind_log_type.html#a595fd82d06223f728a21736b514e31d0" title="Getter for value of solar radiation." alt="" coords="148,157,331,184"/>
+<area shape="rect" id="node6" href="$class_wind_log_type.html#a1eb5e26d87eb0a09bca2bcb9880c0626" title="Getter for value of speed." alt="" coords="156,208,323,235"/>
+<area shape="rect" id="node7" href="$class_wind_log_type.html#a544a8899ac97312b28cd50e37398c831" title="Getter for value of temperature." alt="" coords="158,259,321,285"/>
+<area shape="rect" id="node8" href="$class_wind_log_type.html#a2c45f0f9d64214be3b354c34cdb5dd28" title="Getter for value of year." alt="" coords="161,309,318,336"/>
+</map>

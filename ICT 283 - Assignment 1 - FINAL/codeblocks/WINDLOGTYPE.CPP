@@ -9,7 +9,8 @@ using namespace std;
 
 WindLogType::WindLogType()
 {
-
+    Date d;
+    Time t;
     speed = 0;
     solarRadiation =0;
     temperature =0;
@@ -71,55 +72,67 @@ void WindLogType::SetMin(const int &xMin)
 int WindLogType::GetDay() const
 {
 
-   return d.GettingDay();
+    return d.GettingDay();
 }
 
 
 int WindLogType::GetMonth() const
 {
 
-   return d.GettingMonth();
+    return d.GettingMonth();
 }
 
 int WindLogType::GetYear() const
 {
-   return d.GettingYear();
+    return d.GettingYear();
+}
+
+int WindLogType::GetHour() const
+{
+
+    return t.GettingHour();
+}
+
+int WindLogType::GetMin() const
+{
+
+    return t.GettingMin();
 }
 
 float WindLogType::GetSpeed() const
 {
 
-   return speed;
+    return speed;
 }
 
 void WindLogType::SetSpeed(const float &xSpeed)
 {
 
-   speed = xSpeed;
+    speed = xSpeed;
 }
 
 float WindLogType::GetSolarRad() const
 {
 
-   return solarRadiation;
+    return solarRadiation;
 }
 
 void WindLogType::SetSolarRad(const float &xSolarR)
 {
 
-   solarRadiation = xSolarR;
+    solarRadiation = xSolarR;
 }
 
 float WindLogType::GetTemp() const
 {
 
-   return temperature;
+    return temperature;
 }
 
 void WindLogType::SetTemp(const float &xTemp)
 {
 
-   temperature = xTemp;
+    temperature = xTemp;
 }
 
 

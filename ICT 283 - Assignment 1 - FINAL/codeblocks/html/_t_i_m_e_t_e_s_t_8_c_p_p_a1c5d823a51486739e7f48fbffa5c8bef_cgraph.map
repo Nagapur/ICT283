@@ -1,0 +1,7 @@
+<map id="main5" name="main5">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,63,108"/>
+<area shape="rect" id="node2" href="$class_time.html#a94dd7cb9b85c4b8271f8da85fe4fd4dd" title="Getter for hour." alt="" coords="111,5,237,32"/>
+<area shape="rect" id="node3" href="$class_time.html#a5287bcdd0eaeb88a78a3b623001888ce" title="Getter for minute." alt="" coords="113,56,235,83"/>
+<area shape="rect" id="node4" href="$class_time.html#ac0fdbedb58b2fd99d69bf4c027a08f8c" title="Setter for hour." alt="" coords="121,107,227,133"/>
+<area shape="rect" id="node5" href="$class_time.html#a80ce5dc81d258c31d1b919815c01b835" title="Setter for minute." alt="" coords="125,157,223,184"/>
+</map>

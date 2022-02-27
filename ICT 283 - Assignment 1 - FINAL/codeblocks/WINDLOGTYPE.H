@@ -25,7 +25,7 @@ using namespace std;
 
 class WindLogType
 {
-    public:
+public:
 
     /**
     * @brief  Default constructor
@@ -35,63 +35,63 @@ class WindLogType
     */
     WindLogType();
 
-     /**
-     * @brief  Constructor with parameters
-     *
-     * This function can set initial values for the attributes
-     *
-     *
-     * @param  d,t,speed,solarRadiation,temperature - date object, time object, and the 3 data that will be read from CSV
-     */
-        WindLogType(Date d, Time t, float speed, float solarRadiation, float temperature);
+    /**
+    * @brief  Constructor with parameters
+    *
+    * This function can set initial values for the attributes
+    *
+    *
+    * @param  d,t,speed,solarRadiation,temperature - date object, time object, and the 3 data that will be read from CSV
+    */
+    WindLogType(Date d, Time t, float speed, float solarRadiation, float temperature);
 
-   /**
-     * @brief  Getter for Date object
-     *
-     * retrieve Date object
-     *
-     *
-     *
-     * @param  Date &da
-     * @return void
-     */
-         void GetDate(Date &da)const;
+    /**
+      * @brief  Getter for Date object
+      *
+      * retrieve Date object
+      *
+      *
+      *
+      * @param  Date &da
+      * @return void
+      */
+    void GetDate(Date &da)const;
 
-          /**
-     * @brief  Getter for Time object
-     *
-     * retrieve Time object
-     *
-     *
-     *
-     * @param  Time &ti
-     * @return void
-     */
-         void GetTime(Time &ti)const;
+    /**
+    * @brief  Getter for Time object
+    *
+    * retrieve Time object
+    *
+    *
+    *
+    * @param  Time &ti
+    * @return void
+    */
+    void GetTime(Time &ti)const;
 
-         /**
-     * @brief  Setter for day
-     *
-     * Set the value of day into Date object
-     *
-     *
-     *
-     * @param  xDay, value to become day
-     * @return void
-     */
-        void SetDay(const int &xDay);
+    /**
+    * @brief  Setter for day
+    *
+    * Set the value of day into Date object
+    *
+    *
+    *
+    * @param  xDay, value to become day
+    * @return void
+    */
+    void SetDay(const int &xDay);
 
-                 /**
-     * @brief  Setter for month
-     *
-     * Set the value of month into Date object
-     *
-     *
-     *
-     * @param  xMonth, value to become day
-     * @return void
-     */
-        void SetMonth(const int &xMonth);
+    /**
+    * @brief  Setter for month
+    *
+    * Set the value of month into Date object
+    *
+    *
+    *
+    * @param  xMonth, value to become day
+    * @return void
+    */
+    void SetMonth(const int &xMonth);
 
     /**
      * @brief  Setter for year
@@ -103,151 +103,175 @@ class WindLogType
      * @param  xYear, value to become year
      * @return void
      */
-        void SetYear(const int &xYear);
+    void SetYear(const int &xYear);
 
-            /**
-     * @brief  Setter for hour
-     *
-     * Set the value of hour into Time object
-     *
-     *
-     *
-     * @param  xHour, value to become hour
-     * @return void
-     */
-        void SetHour(const int &xHour);
+    /**
+    * @brief  Setter for hour
+    *
+    * Set the value of hour into Time object
+    *
+    *
+    *
+    * @param  xHour, value to become hour
+    * @return void
+    */
+    void SetHour(const int &xHour);
 
-                /**
-     * @brief  Setter for minute
-     *
-     * Set the value of minute into Time object
-     *
-     *
-     *
-     * @param  xMin, value to become minute
-     * @return void
-     */
-        void SetMin(const int &xMin);
+    /**
+    * @brief  Setter for minute
+    *
+    * Set the value of minute into Time object
+    *
+    *
+    *
+    * @param  xMin, value to become minute
+    * @return void
+    */
+    void SetMin(const int &xMin);
 
-           /**
-     * @brief  Getter for value of day
-     *
-     * return day from Date object
-     *
-     *
-     *
-     * @param NIL
-     * @return int
-     */
+    /**
+    * @brief  Getter for value of day
+    *
+    * return day from Date object
+    *
+    *
+    *
+    * @param NIL
+    * @return int
+    */
 
-        int GetDay()const;
+    int GetDay()const;
 
-        /**
-     * @brief  Getter for value of month
-     *
-     * return month from Date object
-     *
-     *
-     *
-     * @param NIL
-     * @return int
-     */
-        int GetMonth()const;
+    /**
+    * @brief  Getter for value of month
+    *
+    * return month from Date object
+    *
+    *
+    *
+    * @param NIL
+    * @return int
+    */
+    int GetMonth()const;
 
-              /**
-     * @brief  Getter for value of year
-     *
-     * return year from Date object
-     *
-     *
-     *
-     * @param NIL
-     * @return int
-     */
-        int GetYear()const;
+    /**
+    * @brief  Getter for value of year
+    *
+    * return year from Date object
+    *
+    *
+    *
+    * @param NIL
+    * @return int
+    */
+    int GetYear()const;
 
-        /**
-     * @brief  Getter for value of speed
-     *
-     * return speed
-     *
-     *
-     *
-     * @param NIL
-     * @return float
-     */
+    /**
+    * @brief  Getter for hour of time
+    *
+    * return hour from time object
+    *
+    *
+    *
+    * @param NIL
+    * @return int
+    */
+    int GetHour()const;
 
-        float GetSpeed()const;
+    /**
+    * @brief  Getter for minute of time
+    *
+    * return minute from time object
+    *
+    *
+    *
+    * @param NIL
+    * @return int
+    */
+    int GetMin()const;
 
-                  /**
-     * @brief  Setter for speed
-     *
-     * Set the value of speed
-     *
-     *
-     *
-     * @param  xSpeed, value to become speed
-     * @return void
-     */
-        void SetSpeed( const float &xSpeed );
+    /**
+    * @brief  Getter for value of speed
+    *
+    * return speed
+    *
+    *
+    *
+    * @param NIL
+    * @return float
+    */
 
-                /**
-     * @brief  Getter for value of solar radiation
-     *
-     * return solarRadiation
-     *
-     *
-     *
-     * @param NIL
-     * @return float
-     */
-        float GetSolarRad()const;
+    float GetSpeed()const;
 
-                   /**
-     * @brief  Setter for solar radiation
-     *
-     * Set the value of solarRadiation
-     *
-     *
-     *
-     * @param  xSolarR, value to become solarRadiation
-     * @return void
-     */
-        void SetSolarRad( const float &xSolarR );
+    /**
+    * @brief  Setter for speed
+    *
+    * Set the value of speed
+    *
+    *
+    *
+    * @param  xSpeed, value to become speed
+    * @return void
+    */
+    void SetSpeed( const float &xSpeed );
 
-                  /**
-     * @brief  Getter for value of temperature
-     *
-     * return temperature
-     *
-     *
-     *
-     * @param NIL
-     * @return float
-     */
-        float GetTemp()const;
+    /**
+    * @brief  Getter for value of solar radiation
+    *
+    * return solarRadiation
+    *
+    *
+    *
+    * @param NIL
+    * @return float
+    */
+    float GetSolarRad()const;
 
-                           /**
-     * @brief  Setter for temperature
-     *
-     * Set the value of temperature
-     *
-     *
-     *
-     * @param  xTemp, value to become temperature
-     * @return void
-     */
-        void SetTemp( const float &xTemp );
+    /**
+    * @brief  Setter for solar radiation
+    *
+    * Set the value of solarRadiation
+    *
+    *
+    *
+    * @param  xSolarR, value to become solarRadiation
+    * @return void
+    */
+    void SetSolarRad( const float &xSolarR );
+
+    /**
+    * @brief  Getter for value of temperature
+    *
+    * return temperature
+    *
+    *
+    *
+    * @param NIL
+    * @return float
+    */
+    float GetTemp()const;
+
+    /**
+    * @brief  Setter for temperature
+    *
+    * Set the value of temperature
+    *
+    *
+    *
+    * @param  xTemp, value to become temperature
+    * @return void
+    */
+    void SetTemp( const float &xTemp );
 
 
 
-    private:
+private:
 
-        Date d;
-        Time t;
-        float speed;
-        float solarRadiation;
-        float temperature;
+    Date d;
+    Time t;
+    float speed;
+    float solarRadiation;
+    float temperature;
 };
 
 

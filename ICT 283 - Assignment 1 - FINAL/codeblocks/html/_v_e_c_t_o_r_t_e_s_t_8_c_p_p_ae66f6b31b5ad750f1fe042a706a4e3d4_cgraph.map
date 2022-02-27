@@ -1,0 +1,11 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,183,56,209"/>
+<area shape="rect" id="node2" href="$class_vector.html#a68a2cdd7be715662e1e8ef0ed04d14bb" title="Add element to the next available index of the array." alt="" coords="132,5,223,32"/>
+<area shape="rect" id="node3" href="$class_vector.html#ac5576303c7dbe6f13d9028e522126a6e" title="Add element to a specific index." alt="" coords="108,56,247,83"/>
+<area shape="rect" id="node4" href="$class_vector.html#a496d574121188d3a09cbb2313fd3dcad" title="Getter for vector." alt="" coords="137,107,218,133"/>
+<area shape="rect" id="node5" href="$class_vector.html#a32ad98b135472b0ebc5d6cb3ae5d0085" title="clear the array" alt="" coords="129,157,225,184"/>
+<area shape="rect" id="node6" href="$class_vector.html#a576db422716dba5fedcf8b6addb1165d" title="Getter for the array." alt="" coords="104,208,251,235"/>
+<area shape="rect" id="node7" href="$class_vector.html#a0151d4cb23bc2c5474418beb125829ca" title="Getter for the array." alt="" coords="120,259,235,285"/>
+<area shape="rect" id="node8" href="$class_vector.html#ad03918a903e9cc97da0e5294eba61aae" title="Output for the array." alt="" coords="131,309,224,336"/>
+<area shape="rect" id="node9" href="$class_vector.html#a36ac6783da4a2487a6e560eac96cb52b" title="To delete last element." alt="" coords="108,360,247,387"/>
+</map>

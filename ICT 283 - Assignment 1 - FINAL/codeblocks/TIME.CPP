@@ -24,14 +24,14 @@ int Time::GettingHour()const
     return hour;
 }
 
-int Time::GettingMin()const
-{
-    return minute;
-}
-
 void Time::SetHour(const int &xHour)
 {
     hour = xHour;
+}
+
+int Time::GettingMin()const
+{
+    return minute;
 }
 
 void Time::SetMin(const int &xMin)
@@ -43,9 +43,10 @@ void Time::SetMin(const int &xMin)
 ostream & operator <<( ostream & os, const Time & T )
 {
 
+    //fill the blank space with a 0 to show the time properly with 4 digits in total
     auto oldfill = os.fill('0');
 
-  os <<"Time:"<<T.GettingHour()<<":"<< setw(2)<<T.GettingMin()<<setfill(oldfill);
+    os <<"Time:"<<T.GettingHour()<<":"<< setw(2)<<T.GettingMin()<<setfill(oldfill);
 
-  return os;
+    return os;
 }

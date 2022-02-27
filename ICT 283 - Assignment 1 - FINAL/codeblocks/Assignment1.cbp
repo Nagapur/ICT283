@@ -36,10 +36,26 @@
 		</Compiler>
 		<Unit filename="DATE.CPP" />
 		<Unit filename="DATE.H" />
+		<Unit filename="DATETEST.CPP">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="MAIN.CPP" />
 		<Unit filename="TIME.CPP" />
 		<Unit filename="TIME.H" />
+		<Unit filename="TIMETEST.CPP">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="VECTOR.H" />
+		<Unit filename="VECTORTEST.CPP">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="WINDLOGTEST.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="WINDLOGTYPE.CPP" />
 		<Unit filename="WINDLOGTYPE.H">
 			<Option target="&lt;{~None~}&gt;" />

@@ -7,9 +7,9 @@ using namespace std;
 
 Date::Date()
 {
-    day = 1;
-    month = 1;
-    year =1800;
+    day = 0;
+    month = 0;
+    year =0;
 }
 
 Date::Date(int xDay,int xMonth, int xYear)
@@ -19,7 +19,7 @@ Date::Date(int xDay,int xMonth, int xYear)
     year = xYear;
 }
 
- int Date::GettingDay() const
+int Date::GettingDay() const
 {
     return day;
 }
@@ -53,10 +53,9 @@ void Date::SetYear(const int &xYear)
 ostream & operator <<( ostream & os, const Date & D )
 {
 
+    os <<"Date:"<<D.GettingDay()<<"/"<< D.GettingMonth()<<"/"<<D.GettingYear();
 
-  os <<"Date:"<<D.GettingDay()<<"/"<< D.GettingMonth()<<"/"<<D.GettingYear();
-
-  return os;
+    return os;
 }
 
 
