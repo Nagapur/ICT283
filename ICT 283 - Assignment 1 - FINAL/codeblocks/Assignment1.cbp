@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="registration" />
+		<Option title="Assignment1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -40,6 +40,10 @@
 		<Unit filename="TIME.CPP" />
 		<Unit filename="TIME.H" />
 		<Unit filename="VECTOR.H" />
+		<Unit filename="WINDLOGTYPE.CPP" />
+		<Unit filename="WINDLOGTYPE.H">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

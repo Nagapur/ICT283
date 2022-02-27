@@ -9,24 +9,14 @@
 #include "DATE.H"
 #include "TIME.H"
 #include "VECTOR.H"
+#include "WINDLOGTYPE.H"
 #include <string.h>
 #include <sstream>
 #include <iomanip>
-#include<ios> //used to get stream size
-#include<limits> //used to get numeric limits
+
 
 using namespace std;
 
-
-
-typedef struct
-{
-    Date d;
-    Time t;
-    float speed;
-    float solarRadiation;
-    float temperature;
-} WindLogType;
 
 istream &operator >>(istream & input, WindLogType & Te);
 ostream & operator <<( ostream & os, const WindLogType & Te );
@@ -42,7 +32,101 @@ bool checkNumber(string str) {
       return false;
       return true;
 }
-void Option1(vectorClass<WindLogType> & windlog)
+
+void ReadCSVToVector(Vector<WindLogType> & windlog)
+{
+
+    Vector<string> column;
+
+    WindLogType w1;
+
+    string filename;
+    ifstream inputFile;
+    string topline;
+    string token;
+    string rows;
+
+    // 2 files, choose either for testing
+    //filename = "/Users/sengw/Desktop/ICT 283/ICT 283 - Assignment 1/codeblocks/data/MetData_Mar01-2015-Mar01-2016-ALL.csv";
+    //filename = "/Users/sengw/Desktop/ICT 283/ICT 283 - Assignment 1/codeblocks/data/MetData_Mar01-2014-Mar01-2015-ALL.csv";
+    filename = "MetData-31-3.csv";
+    inputFile.open(filename.c_str());
+
+    getline(inputFile,topline, '\n');
+    stringstream firstrow ;
+    firstrow<<topline;
+
+    while(getline(firstrow,token, ',')) //reading the first line of header information and save into another Vector
+    {
+
+        column.Add(token);
+    }
+
+
+    while(getline(inputFile,rows,'/')) //reading the rest of the CSV from second line onwards
+
+
+    {
+
+        //read the required data line by line and use appropriate setters
+
+        int day1 = stoi(rows);
+        w1.SetDay(day1);
+
+        getline(inputFile,rows, '/');
+        int month1 = stoi(rows);
+        w1.SetMonth(month1);
+
+        getline(inputFile,rows, ' ');
+        int year1 = stoi(rows);
+        w1.SetYear(year1);
+
+        getline(inputFile,rows, ':');
+        int hour1 = stoi(rows);
+        w1.SetHour(hour1);
+
+        getline(inputFile,rows, ',');
+        int min1 = stoi(rows);
+        w1.SetMin(min1);
+
+
+        for(int k = 0; k < 9; k++) //skip data columns that not required
+        {
+            getline(inputFile,rows, ',');
+
+
+        }
+
+        getline(inputFile,rows, ','); //read speed column
+        float tempSpeed = stoi(rows);
+        w1.SetSpeed(tempSpeed);
+
+        getline(inputFile,rows, ','); //read SR column
+        float tempSR = stoi(rows);
+        w1.SetSolarRad(tempSR);
+
+        for(int p = 0; p < 5; p++) // skip unwanted columns
+        {
+
+            getline(inputFile,rows, ',');
+
+        }
+
+        getline(inputFile,rows);   // read temperature column
+        float temperature1 = stof(rows);
+        w1.SetTemp(temperature1);
+
+        inputFile >> w1;
+
+        windlog.Add(w1); // add everything to Vector
+
+
+       // cout<<w1;  // CHECK OUTPUT, but too MANY
+
+    }
+
+}
+void AvgSpeedAndTemp(Vector<WindLogType> & windlog)
 {
         int inputMonth;
         int inputYear;
@@ -52,32 +136,20 @@ void Option1(vectorClass<WindLogType> & windlog)
         double avgSpeed = 0;
         double avgTemp = 0;
 
+
         cout<<"Please input month first and then year, press ENTER after each input"<<'\n';
         cin>>inputMonth;
         cin>>inputYear;
 
 
-
-       /* for (int x =0; x<windlog.GetSize(); x++)  /////////// NOT IN USE //////////////
-    {
-
-        if(inputMonth!=windlog.At(x).d.GettingMonth() && inputYear!=windlog.At(x).d.GettingYear()) // check if input is valid to begin search
-        {
-            cout<<"No corresponding month and year found!"<<endl;
-            break;
-        }
-
-    }
-    //above not in use*/
-
         for (int x =0; x<windlog.GetSize(); x++)
     {
 
-        if(inputYear == windlog.At(x).d.GettingYear() && inputMonth == windlog.At(x).d.GettingMonth()) // loop through vector to check year and month
+        if(inputYear == windlog.At(x).GetYear() && inputMonth == windlog.At(x).GetMonth()) // loop through vector to check year and month
         {
 
-                totalSpeed=windlog.At(x).speed + totalSpeed;
-                totalTemp=windlog.At(x).temperature + totalTemp;
+                totalSpeed=windlog.At(x).GetSpeed() + totalSpeed;
+                totalTemp=windlog.At(x).GetTemp() + totalTemp;
                 totalDataCount++;
         }
 
@@ -104,7 +176,7 @@ void Option1(vectorClass<WindLogType> & windlog)
         }
 }
 
-void Option2(vectorClass<WindLogType> & windlog)
+void MonthlyAvgSpeedAndTemp(Vector<WindLogType> & windlog)
 {
         double totalSpeedArr [13] ={0},totalTempArr[13] ={0},avgSpeedArr[13]={0},avgTempArr[13]={0}; // arrays to store the data by month, month = index
         int totalDataCount[13]={0}; // array to store the total line count                           // array is size 13 because index 0 will be unused
@@ -120,13 +192,12 @@ void Option2(vectorClass<WindLogType> & windlog)
          for (int x =0; x<windlog.GetSize(); x++)
     {
 
-        if(inputYear == windlog.At(x).d.GettingYear())  // check for same year as per input and extract the month value
+        if(inputYear == windlog.At(x).GetYear())  // check for same year as per input and extract the month value
         {
-            monthCount = windlog.At(x).d.GettingMonth();
-            totalSpeedArr[monthCount]= windlog.At(x).speed + totalSpeedArr[monthCount]; // use the month as the index of the arrays
-            totalTempArr[monthCount] = windlog.At(x).temperature + totalTempArr[monthCount];
+            monthCount = windlog.At(x).GetMonth();
+            totalSpeedArr[monthCount]= windlog.At(x).GetSpeed() + totalSpeedArr[monthCount]; // use the month as the index of the arrays
+            totalTempArr[monthCount] = windlog.At(x).GetTemp() + totalTempArr[monthCount];
             totalDataCount[monthCount]++; // keep track of total line items so can calculate average later
-
 
 
         }
@@ -154,7 +225,7 @@ void Option2(vectorClass<WindLogType> & windlog)
 
 }
 
-void Option3(vectorClass<WindLogType> & windlog)
+void MonthySolarRad(Vector<WindLogType> & windlog)
 {
         // arrays to store the data by month, month = index
         // array is size 13 because index 0 will be unused
@@ -176,18 +247,16 @@ void Option3(vectorClass<WindLogType> & windlog)
          for (int x =0; x<windlog.GetSize(); x++)
     {
 
-        if(inputYear == windlog.At(x).d.GettingYear()) // loop through vector to find the required year
+        if(inputYear == windlog.At(x).GetYear()) // loop through vector to find the required year
         {
-            monthCount = windlog.At(x).d.GettingMonth();
-            //totalSolarArr[monthCount]= windlog.At(x).solarRadiation + totalSolarArr[monthCount];
-            //totalDataCount[monthCount]++;
+            monthCount = windlog.At(x).GetMonth();
 
-              if(windlog.At(x).solarRadiation>=100) // only accept SR>=100 for calculation
+
+              if(windlog.At(x).GetSolarRad()>=100) // only accept SR>=100 for calculation
             {
 
-               // totalSolarArr[monthCount] = windlog.At(x).solarRadiation; // converting it to kWh, multiply by (1/6) then divide by 1000
-                totalSolarArr[monthCount]= windlog.At(x).solarRadiation + totalSolarArr[monthCount];
-                //totalDataCount[monthCount]++;
+                totalSolarArr[monthCount]= windlog.At(x).GetSolarRad() + totalSolarArr[monthCount];
+
             }
 
 
@@ -217,7 +286,7 @@ void Option3(vectorClass<WindLogType> & windlog)
 
 }
 
-void Option4(vectorClass<WindLogType> & windlog)
+void WriteToCSV(Vector<WindLogType> & windlog)
 {
         // arrays to store the data by month, month = index
         // array is size 13 because index 0 will be unused
@@ -239,19 +308,19 @@ void Option4(vectorClass<WindLogType> & windlog)
          for (int x =0; x<windlog.GetSize(); x++)
     {
 
-        if(inputYear == windlog.At(x).d.GettingYear()) // loop through vector to find year and extract monthly data
+        if(inputYear == windlog.At(x).GetYear()) // loop through vector to find year and extract monthly data
         {
 
-            monthCount = windlog.At(x).d.GettingMonth();
-            totalSpeedArr[monthCount]= windlog.At(x).speed + totalSpeedArr[monthCount];
-            totalTempArr[monthCount] = windlog.At(x).temperature + totalTempArr[monthCount];
+            monthCount = windlog.At(x).GetMonth();
+            totalSpeedArr[monthCount]= windlog.At(x).GetSpeed() + totalSpeedArr[monthCount];
+            totalTempArr[monthCount] = windlog.At(x).GetTemp() + totalTempArr[monthCount];
             totalDataCount[monthCount]++;
 
 
-            if(windlog.At(x).solarRadiation>=100) // only accept SR>+100 for calculation
+            if(windlog.At(x).GetSolarRad()>=100) // only accept SR>+100 for calculation
             {
 
-                totalSolarArr[monthCount]= windlog.At(x).solarRadiation + totalSolarArr[monthCount];
+                totalSolarArr[monthCount]= windlog.At(x).GetSolarRad() + totalSolarArr[monthCount];
 
             }
 
@@ -277,13 +346,6 @@ void Option4(vectorClass<WindLogType> & windlog)
             }
 
 
-
-           /* if(totalSpeedArr[x]== 0 || totalTempArr[x]== 0 || totalSolarArr[x]== 0 )
-
-            {
-
-            }*/
-
         }
 
          if (fileWritten == true) // if true, output file written message
@@ -299,126 +361,21 @@ void Option4(vectorClass<WindLogType> & windlog)
         }
 
 
-     /*   for (int x=1 ; x<13; x++) // X start from 1 to skip index 0 of month array
-        {
-            if(avgSpeedArr[x]!= 0 && avgTempArr[x]!= 0 && totalSolarArr[x]!= 0 )
-            {
-
-                totalSolarArr[x] = totalSolarArr[x] * wH /(1000);
-                ofile<<month[x]<<fixed<<setprecision(1)
-                <<","<<avgSpeedArr[x]<<","<<avgTempArr[x]<<","<<totalSolarArr[x]<<'\n';
-                fileWritten = true;
-
-            }
-
-        }*/
-
-
         ofile.close();
 }
 
 // Main program:
 int main()
 {
-    vectorClass<WindLogType> windlog;
-    vectorClass<string> column;
+    Vector<WindLogType> windlog;
 
-    WindLogType w1;
+    ReadCSVToVector(windlog);
 
-
-    string filename;
-    ifstream inputFile;
-    string topline;
-    string token;
-    string rows;
-
-
-    //filename = "/Users/sengw/Desktop/ICT 283/ICT 283 - Assignment 1/codeblocks/data/MetData_Mar01-2015-Mar01-2016-ALL.csv";
-    filename = "MetData-31-3.csv";
-    inputFile.open(filename.c_str());
-
-    getline(inputFile,topline, '\n');
-    stringstream firstrow ;
-    firstrow<<topline;
-
-    while(getline(firstrow,token, ',')) //reading the first line of header information
-    {
-
-        column.Add(token);
-    }
-
-
-    while(getline(inputFile,rows,'/')) //reading the rest of the CSV from second line onwards
-
-
-    {
-
-        WindLogType w1;
-
-
-        int day1 = stoi(rows);
-        w1.d.SetDay(day1);
-
-        getline(inputFile,rows, '/');
-        int month1 = stoi(rows);
-        w1.d.SetMonth(month1);
-
-        getline(inputFile,rows, ' ');
-        int year1 = stoi(rows);
-        w1.d.SetYear(year1);
-
-        getline(inputFile,rows, ':');
-        int hour1 = stoi(rows);
-        w1.t.SetHour(hour1);
-
-        getline(inputFile,rows, ',');
-        int min1 = stoi(rows);
-        w1.t.SetMin(min1);
-
-
-        for(int k = 0; k < 9; k++) //skip data columns that not required
-        {
-            getline(inputFile,rows, ',');
-
-
-        }
-
-        getline(inputFile,rows, ','); //read speed column
-        float tempSpeed = stoi(rows);
-        w1.speed = tempSpeed;
-
-
-        getline(inputFile,rows, ','); //read SR column
-        float tempSR = stoi(rows);
-        w1.solarRadiation = tempSR;
-
-        for(int p = 0; p < 5; p++) // skip unwanted columns
-        {
-            getline(inputFile,rows, ',');
-
-        }
-
-
-        getline(inputFile,rows);   // read temperature column
-        float temperature1 = stof(rows);
-        w1.temperature = temperature1;
-
-        inputFile >> w1;
-        windlog.Add(w1);
-
-
-        cout<<w1;  // CHECK OUTPUT, but too MANY
-
-
-    }
+    //windlog.print();
 
     int inputChoice =0;
     int checkerChoice=0;
     string checker;
-
-
-
-
 
         while(inputChoice!=5) // exit menu loop when 5 is input
     {
@@ -439,8 +396,6 @@ int main()
     cin>>inputChoice;
 
 
-
-
    /* cout<<"type number la"<<endl;
     getline(cin,checker);
     cout<<"CHECKER IS HERE"<<checker<<endl;
@@ -459,24 +414,23 @@ int main()
 
 
 
-
     switch(inputChoice){
 
 case 1:
 
-Option1(windlog);
+AvgSpeedAndTemp(windlog);
 break;
 
 case 2:
-Option2(windlog);
+MonthlyAvgSpeedAndTemp(windlog);
 break;
 
 case 3:
-Option3(windlog);
+MonthySolarRad(windlog);
 break;
 
 case 4:
-Option4(windlog);
+WriteToCSV(windlog);
 break;
 
 case 5:
@@ -507,17 +461,18 @@ return 0;
 istream &operator >>(istream & input, WindLogType & Te)
 {
 
-
-
     return input;
 }
 
 ostream & operator <<( ostream & os, const WindLogType & Te )
 {
+    Date date;
+    Time time;
+    Te.GetDate(date);
+    Te.GetTime(time);
 
-
-    os<<Te.d<<" "<<Te.t<<" "<<"Speed: "<<Te.speed<<" Solar Radiation: "<<Te.solarRadiation
-    <<" Temperature: "<<Te.temperature<<'\n';
+    os<<date<<" "<<time<<" "<<"Speed: "<<Te.GetSpeed()<<" Solar Radiation: "<<Te.GetSolarRad()
+    <<" Temperature: "<<Te.GetTemp()<<'\n';
 
     return os;
 }

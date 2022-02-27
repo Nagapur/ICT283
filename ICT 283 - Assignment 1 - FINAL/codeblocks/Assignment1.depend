@@ -263,17 +263,17 @@
 1645602846 c:\users\sengw\desktop\ict 283\ict 283 lab 5 - question 5\codeblocks\vector.h
 	<iostream>
 
-1645807347 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\date.cpp
+1645892673 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\date.cpp
 	"DATE.H"
 	<iostream>
 	<string.h>
 	<sstream>
 
-1645807295 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\date.h
+1645876989 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\date.h
 	<iostream>
 	<string.h>
 
-1645807379 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\time.cpp
+1645892673 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\time.cpp
 	"TIME.H"
 	<iostream>
 	<string.h>
@@ -284,18 +284,80 @@
 	<iostream>
 	<string.h>
 
-1645804482 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\main.cpp
+1645931595 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\main.cpp
 	<iostream>
 	<fstream>
 	"DATE.H"
 	"TIME.H"
 	"VECTOR.H"
+	"WINDLOGTYPE.H"
 	<string.h>
 	<sstream>
 	<iomanip>
-	<ios>
-	<limits>
 
-1645708748 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\vector.h
+1645876989 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\vector.h
 	<iostream>
+
+1645930708 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\windlogtype.cpp
+	"WINDLOGTYPE.H"
+	"DATE.H"
+	"TIME.H"
+	<iostream>
+	<string.h>
+	<sstream>
+
+1645930708 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1\codeblocks\windlogtype.h
+	"DATE.H"
+	"TIME.H"
+	<iostream>
+	<string.h>
+
+1645892673 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\date.cpp
+	"DATE.H"
+	<iostream>
+	<string.h>
+	<sstream>
+
+1645876989 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\date.h
+	<iostream>
+	<string.h>
+
+1645931595 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\main.cpp
+	<iostream>
+	<fstream>
+	"DATE.H"
+	"TIME.H"
+	"VECTOR.H"
+	"WINDLOGTYPE.H"
+	<string.h>
+	<sstream>
+	<iomanip>
+
+1645807295 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\time.h
+	<iostream>
+	<string.h>
+
+1645876989 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\vector.h
+	<iostream>
+
+1645930708 c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\windlogtype.h
+	"DATE.H"
+	"TIME.H"
+	<iostream>
+	<string.h>
+
+1645892673 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\time.cpp
+	"TIME.H"
+	<iostream>
+	<string.h>
+	<sstream>
+	<iomanip>
+
+1645930708 source:c:\users\sengw\desktop\ict 283\ict 283 - assignment 1 - spare to change proj name\codeblocks\windlogtype.cpp
+	"WINDLOGTYPE.H"
+	"DATE.H"
+	"TIME.H"
+	<iostream>
+	<string.h>
+	<sstream>
 

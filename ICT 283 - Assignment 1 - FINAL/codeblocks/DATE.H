@@ -69,7 +69,7 @@ public:
      * @param  xDay , value to become day
      * @return void
      */
-    void SetDay( const unsigned &xDay );
+    void SetDay( const int &xDay );
 
     /**
      * @brief  Getter for month
