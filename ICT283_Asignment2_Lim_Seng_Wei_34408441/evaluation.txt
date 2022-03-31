@@ -1,0 +1,18 @@
+ICT 283 Assignment 1, Evaluation
+
+What works:
+1. Program is able to perform all requirement of the Menu options and pass all aspects of the test plan
+2. The average wind speed and average ambient air temperature for a specified month and year.
+3. Average wind speed and average ambient air temperature for each month of a specified year. 
+4. Total solar radiation in kWh/m2 for each month of a specified year. 
+5. Average wind speed (km/h), average ambient air temperature and total solar radiation in kWh/m2 for each month of a specified year.
+6. Capabilitiy to extract each required data field and work on the data such as performing calculations
+7. Able to regconise invalid interger input at menu  
+8. Able to read from CSV file into a vector, able to isolate header column and store it if required
+
+
+
+What doesn't work:
+1.Entering non numeric values at the Menu will send the program to an endless loop
+2.Entering non numeric values when at option 2,3,4 will also send the program to an endless loop
+3.Entering invalid input at option 1 will end the program instead of looping back to menu or asking for new input

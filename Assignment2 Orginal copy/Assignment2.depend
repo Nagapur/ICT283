@@ -1,0 +1,226 @@
+# depslib dependency file v1.0
+1511071390 source:/Users/jkwj/Desktop/Assignment2/BST.cpp
+	"BST.h"
+	<iostream>
+	<map>
+
+1511068860 /Users/jkwj/Desktop/Assignment2/BST.h
+	<iostream>
+	<map>
+
+1511063495 source:/Users/jkwj/Desktop/Assignment2/Date.cpp
+	"Date.h"
+	<iostream>
+	<string>
+
+1511063479 /Users/jkwj/Desktop/Assignment2/Date.h
+	<iostream>
+	<string>
+
+1511067201 source:/Users/jkwj/Desktop/Assignment2/Time.cpp
+	"Time.h"
+	<iostream>
+	<string>
+	<iomanip>
+	<sstream>
+
+1511066820 /Users/jkwj/Desktop/Assignment2/Time.h
+	<iostream>
+	<string>
+
+1511094499 source:/Users/jkwj/Desktop/Assignment2/main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+	"Vector.h"
+	"Date.h"
+	"Time.h"
+	"BST.h"
+	<iomanip>
+	<map>
+
+1511063557 /Users/jkwj/Desktop/Assignment2/Vector.h
+	<iostream>
+	<string>
+
+1511071390 source:/Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/BST.cpp
+	"BST.h"
+	<iostream>
+	<map>
+
+1511068860 /Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/BST.h
+	<iostream>
+	<map>
+
+1511063495 source:/Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/Date.cpp
+	"Date.h"
+	<iostream>
+	<string>
+
+1511063479 /Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/Date.h
+	<iostream>
+	<string>
+
+1511067201 source:/Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/Time.cpp
+	"Time.h"
+	<iostream>
+	<string>
+	<iomanip>
+	<sstream>
+
+1511066820 /Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/Time.h
+	<iostream>
+	<string>
+
+1511094499 source:/Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+	"Vector.h"
+	"Date.h"
+	"Time.h"
+	"BST.h"
+	<iomanip>
+	<map>
+
+1511063557 /Users/jkwj/Dropbox/Data Structures and Abstractions/Assignment2/Vector.h
+	<iostream>
+	<string>
+
+1511071390 source:/Users/jkwj/Desktop/Assignment2 Orginal/BST.cpp
+	"BST.h"
+	<iostream>
+	<map>
+
+1511068860 /Users/jkwj/Desktop/Assignment2 Orginal/BST.h
+	<iostream>
+	<map>
+
+1511063495 source:/Users/jkwj/Desktop/Assignment2 Orginal/Date.cpp
+	"Date.h"
+	<iostream>
+	<string>
+
+1511063479 /Users/jkwj/Desktop/Assignment2 Orginal/Date.h
+	<iostream>
+	<string>
+
+1511094499 source:/Users/jkwj/Desktop/Assignment2 Orginal/main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+	"Vector.h"
+	"Date.h"
+	"Time.h"
+	"BST.h"
+	<iomanip>
+	<map>
+
+1511063557 /Users/jkwj/Desktop/Assignment2 Orginal/Vector.h
+	<iostream>
+	<string>
+
+1511066820 /Users/jkwj/Desktop/Assignment2 Orginal/Time.h
+	<iostream>
+	<string>
+
+1511067201 source:/Users/jkwj/Desktop/Assignment2 Orginal/Time.cpp
+	"Time.h"
+	<iostream>
+	<string>
+	<iomanip>
+	<sstream>
+
+1511071390 source:/Users/jkwj/Desktop/Assignment2 Orginal copy/BST.cpp
+	"BST.h"
+	<iostream>
+	<map>
+
+1511068860 /Users/jkwj/Desktop/Assignment2 Orginal copy/BST.h
+	<iostream>
+	<map>
+
+1511063495 source:/Users/jkwj/Desktop/Assignment2 Orginal copy/Date.cpp
+	"Date.h"
+	<iostream>
+	<string>
+
+1511063479 /Users/jkwj/Desktop/Assignment2 Orginal copy/Date.h
+	<iostream>
+	<string>
+
+1511094499 source:/Users/jkwj/Desktop/Assignment2 Orginal copy/main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+	"Vector.h"
+	"Date.h"
+	"Time.h"
+	"BST.h"
+	<iomanip>
+	<map>
+
+1511063557 /Users/jkwj/Desktop/Assignment2 Orginal copy/Vector.h
+	<iostream>
+	<string>
+
+1511066820 /Users/jkwj/Desktop/Assignment2 Orginal copy/Time.h
+	<iostream>
+	<string>
+
+1511067201 source:/Users/jkwj/Desktop/Assignment2 Orginal copy/Time.cpp
+	"Time.h"
+	<iostream>
+	<string>
+	<iomanip>
+	<sstream>
+
+1647665410 source:c:\users\sengw\desktop\ict 283\assignment2 orginal copy\bst.cpp
+	"BST.h"
+	<iostream>
+	<map>
+
+1647665410 c:\users\sengw\desktop\ict 283\assignment2 orginal copy\bst.h
+	<iostream>
+	<map>
+
+1647665410 source:c:\users\sengw\desktop\ict 283\assignment2 orginal copy\date.cpp
+	"Date.h"
+	<iostream>
+	<string>
+
+1647665410 c:\users\sengw\desktop\ict 283\assignment2 orginal copy\date.h
+	<iostream>
+	<string>
+
+1647665410 source:c:\users\sengw\desktop\ict 283\assignment2 orginal copy\main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+	"Vector.h"
+	"Date.h"
+	"Time.h"
+	"BST.h"
+	<iomanip>
+	<map>
+
+1647665410 c:\users\sengw\desktop\ict 283\assignment2 orginal copy\vector.h
+	<iostream>
+	<string>
+
+1647665410 c:\users\sengw\desktop\ict 283\assignment2 orginal copy\time.h
+	<iostream>
+	<string>
+
+1647665410 source:c:\users\sengw\desktop\ict 283\assignment2 orginal copy\time.cpp
+	"Time.h"
+	<iostream>
+	<string>
+	<iomanip>
+	<sstream>
+
