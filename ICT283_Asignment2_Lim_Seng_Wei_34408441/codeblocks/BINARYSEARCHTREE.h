@@ -2,6 +2,9 @@
 #define BINARYSEARCHTREE_H_INCLUDED
 #include <iostream>
 #include "DATE.H"
+#include "WINDLOGTYPE.H"
+#include "VECTOR.H"
+#include <map>
 
 /**
  * @class BinarySearchTree
@@ -25,12 +28,14 @@ template <class T>
 struct Node
 {
 
-        T data;
+        T data; // key
+        map <T, T> newMap;
         Node<T> *lLink;
         Node<T> *rLink;
 
 };
 
+//typedef map<int, map<int, Vector<WindLogType>>> windLogMap;
 
  template <class T>
 class BinarySearchTree
@@ -41,8 +46,9 @@ public:
     BinarySearchTree(const BinarySearchTree<T> & otherTree);
     bool IsEmpty() const;
     void Insert (const T &item);
-    //Node<T> * Search (Node<T> * root , const T & item);
+    void FindNode (const T &item);
     void InOrderTraversal() const;
+    void InOrderTraversal(void(*funcPtr)(T&)) const; // function pointer
     void PreOrderTraversal() const;
     void PostOrderTraversal() const;
     void DestroyTree();
@@ -54,9 +60,11 @@ public:
         void CopyTree(Node<T>* &copiedTreeRoot, Node<T>* otherTreeRoot);
         void destroy(Node<T> *&p);
         void InOrder(Node<T> *p) const;
+        void InOrder(Node<T> *p , void (*funcPtr)(T&)) const; // function pointer
         void PreOrder(Node<T> *p) const;
         void PostOrder(Node<T> *p) const;
-        void Insert (Node<T> * newNode, Node<T> * root);
+        void InsertFromNode (Node<T> * newNode, Node<T> * root);
+        bool FindNode(Node<T> * root , const T & item);
         Node<T> * m_root;
 
 };
@@ -79,54 +87,113 @@ bool BinarySearchTree<T>::IsEmpty() const
         return (m_root == nullptr);
 }
 
-template <class T>
+/*template <class T>
 bool BinarySearchTree<T>:: operator < (const BinarySearchTree<T> &val)
 {
       return
-}
+}*/
 
 template <class T>
-void BinarySearchTree<T>::Insert(Node<T> * newNode, Node<T> * root )
+void BinarySearchTree<T>::InsertFromNode(Node<T> * newNode, Node<T> * root )
 {
+
+        /*    map <T,T> testMap;
+
+          typename map <T,T> ::iterator itr;
+          newNode->newMap = testMap;
+          testMap.insert(pair<T,T>(newNode->data,root->data));*/
 
            if(newNode->data < root->data)
            {
-                /*root->lLink =*/ Insert (newNode,root->lLink);
+               if(root->lLink == nullptr)
+               {
+                   root->lLink = newNode;
+
+               }
+
+               else
+               {
+                   /*root->lLink =*/ InsertFromNode (newNode,root->lLink);
+               }
+
            }
 
-            else if (newNode->data > root->data)
+            else //(newNode->data > root->data)
             {
-                /*root ->rLink =*/ Insert (newNode, root->rLink);
+                if(root->rLink ==nullptr)
+
+                {
+                    root->rLink = newNode;
+                }
+
+                else
+                {
+                    /*root ->rLink =*/ InsertFromNode (newNode, root->rLink);
+                }
+
             }
-
-            else
-            {
-                cout<<" Duplicate value!"<<endl;
-
-            }
-
-
 
        }
 
+
+/*template <class T>
+void BinarySearchTree<T>::Insert(const T &item)
+{
+
+         map <T, T> testMap;
+
+
+
+    Node <T> *newNode = new Node<T>;
+    newNode->data = item;
+        newNode->newMap = testMap;
+    newNode->lLink = nullptr;
+    newNode->rLink = nullptr;
+
+
+    if (m_root == nullptr)
+    {
+        m_root = newNode;
+
+    }
+
+    else
+    {
+        InsertFromNode(newNode , m_root);
+    }
+
+
+
+
+}*/
 
 template <class T>
 void BinarySearchTree<T>::Insert(const T &item)
 {
 
+
+
+
+
+
+
     Node <T> *newNode = new Node<T>;
     newNode->data = item;
+
+
+    newNode->lLink = nullptr;
+    newNode->rLink = nullptr;
+
 
     if (m_root == nullptr)
     {
         m_root = newNode;
-        newNode->lLink = nullptr;
-        newNode->rLink = nullptr;
+
     }
 
     else
     {
-        Insert(newNode , m_root);
+        InsertFromNode(newNode , m_root);
     }
 
 
@@ -134,34 +201,52 @@ void BinarySearchTree<T>::Insert(const T &item)
 
 }
 
-/*template <class T>
-Node <T> * BinarySearchTree<T>::Search(Node<T> * root , const T & item)
+template <class T>
+bool BinarySearchTree<T>::FindNode(Node<T> * root , const T & item)
 {
-        if (root == NULL)
+        bool found;
+
+        if (root == nullptr)
         {
-            return nullptr;
+            found = false;
+
+            return found;
         }
 
         else if(root->data == item)
         {
-            return root;
+            found = true;
+            cout<<"FOUND!"<<endl;
+            return found;
         }
 
          else if(item < root -> data)
         {
-            return Search(root->lLink,item);
+             FindNode(root->lLink,item);
         }
 
         else
         {
-            return Search(root->rLink , item);
+            FindNode(root->rLink ,item);
         }
-}*/
+}
+
+template <class T>
+void BinarySearchTree<T>::FindNode(const T &item)
+{
+    FindNode(m_root, item);
+}
 
 template <class T>
 void BinarySearchTree<T>::InOrderTraversal() const
 {
         InOrder(m_root);
+}
+
+template <class T>
+void BinarySearchTree<T>::InOrderTraversal(void(*funcPtr)(T&)) const
+{
+        InOrder(m_root, *funcPtr);
 }
 
 template <class T>
@@ -232,6 +317,18 @@ void BinarySearchTree<T>::InOrder(Node<T> *p) const
 }
 
 template <class T>
+void BinarySearchTree<T>::InOrder(Node<T> *p , void (*funcPtr)(T&)) const
+{
+    if (p != NULL)
+        {
+
+            InOrder(p-> lLink, *funcPtr);
+            (*funcPtr)(p->data);
+            InOrder(p-> rLink, *funcPtr);
+        }
+}
+
+template <class T>
 void BinarySearchTree<T>::PreOrder(Node<T> *p) const
 {
     if (p != NULL)
@@ -239,7 +336,7 @@ void BinarySearchTree<T>::PreOrder(Node<T> *p) const
 
             cout << p->data << " ";
             PreOrder(p-> lLink);
-            Preorder(p-> rLink);
+            PreOrder(p-> rLink);
         }
 }
 
@@ -250,7 +347,7 @@ void BinarySearchTree<T>::PostOrder(Node<T> *p) const
         {
 
             PreOrder(p-> lLink);
-            Preorder(p-> rLink);
+            PreOrder(p-> rLink);
             cout << p->data << " ";
         }
 }

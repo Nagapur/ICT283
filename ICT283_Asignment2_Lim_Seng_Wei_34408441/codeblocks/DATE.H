@@ -119,6 +119,10 @@ public:
      */
     void SetYear( const int &xYear );
 
+   bool operator < (const Date &D) const;
+
+
+
 private:
     int day;
     int month;

@@ -263,7 +263,8 @@ public:
     */
     void SetTemp( const float &xTemp );
 
-
+ bool operator < (const WindLogType &W) const;
+//  bool operator = (const WindLogType &W) const;
 
 private:
 
@@ -274,5 +275,6 @@ private:
     float temperature;
 };
 
+ostream & operator <<( ostream & os, const WindLogType & W );
 
 #endif // WINDLOGTYPE_H_INCLUDED

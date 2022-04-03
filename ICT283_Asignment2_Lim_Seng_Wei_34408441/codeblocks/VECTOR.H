@@ -41,6 +41,12 @@ private:
 
 public:
 
+    T* begin() { return m_array; }
+    T* end() { return m_array + m_size; }
+
+    T const* begin() const { return m_array; }
+    T const* end() const { return m_array + m_size; }
+
     /**
      * @brief  Default constructor
      *

@@ -135,4 +135,36 @@ void WindLogType::SetTemp(const float &xTemp)
     temperature = xTemp;
 }
 
+ostream & operator <<( ostream & os, const WindLogType & Te )
+{
 
+    Date date;
+    Time time;
+    Te.GetDate(date);
+    Te.GetTime(time);
+
+    os<<date<<" "<<time<<" "<<"Speed: "<<Te.GetSpeed()<<" Solar Radiation: "<<Te.GetSolarRad()
+      <<" Temperature: "<<Te.GetTemp()<<'\n';
+
+    return os;
+}
+
+bool WindLogType::operator < (const WindLogType &W) const
+{
+        if ((d.GettingYear()<W.GetYear())||
+            (d.GettingYear()==W.GetYear() && d.GettingMonth()<W.GetMonth())||
+            (d.GettingYear()==W.GetYear() && d.GettingMonth()==W.GetMonth() && d.GettingDay()<W.GetDay()))
+                return true;
+        else
+                return false;
+}
+
+/*bool WindLogType::operator = (const WindLogType &W) const
+{
+        if ((d.GettingYear()<W.GetYear())||
+            (d.GettingYear()==W.GetYear() && d.GettingMonth()<W.GetMonth())||
+            (d.GettingYear()==W.GetYear() && d.GettingMonth()==W.GetMonth() && d.GettingDay()<W.GetDay()))
+                return true;
+        else
+                return false;
+}*/

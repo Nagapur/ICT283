@@ -58,4 +58,14 @@ ostream & operator <<( ostream & os, const Date & D )
     return os;
 }
 
+bool Date::operator < (const Date &D) const
+{
+        if ((year<D.GettingYear())||
+            (year==D.GettingYear() && month<D.GettingMonth())||
+            (year==D.GettingYear() && month==D.GettingMonth() && day<D.GettingDay()))
+                return true;
+        else
+                return false;
+}
+
 

@@ -9,7 +9,10 @@
 #include "BINARYSEARCHTREE.H"
 #include <string.h>
 #include <sstream>
+#include <limits>
 #include <iomanip>
+#include <map>
+#include <string>
 
 
 using namespace std;
@@ -24,8 +27,22 @@ string month[13] = {" ", "January","February","March","April","May","June",
 
 //Functions:
 
-void ReadCSVToVector(Vector<WindLogType> & windlog)
+void print(multimap<pair<int, int>,WindLogType>& myContainer) // print function for multimap pairs
 {
+    for (auto pr : myContainer)
+    {
+        pair<int, int> myPair = pr.first;
+
+        // pr points to current pair of myContainer
+        cout << '[' << myPair.first << "," << myPair.second << ']' << " " << pr.second << '\n';
+    }
+
+}
+
+
+void ReadCSVToVector(string token , Vector<WindLogType> & windlog)
+{
+
 
     Vector<string> column;
 
@@ -34,22 +51,23 @@ void ReadCSVToVector(Vector<WindLogType> & windlog)
     string filename;
     ifstream inputFile;
     string topline;
-    string token;
+    string throwaway;
     string rows;
 
-    // 2 files, choose either for testing
-    filename = "/Users/sengw/Desktop/ICT 283/ICT283_Asignment1_Lim_Seng_Wei_34408441/codeblocks/data/MetData_Mar01-2015-Mar01-2016-ALL.csv";
-    //filename = "/Users/sengw/Desktop/ICT 283/ICT283_Asignment1_Lim_Seng_Wei_34408441/codeblocks/data/MetData_Mar01-2014-Mar01-2015-ALL.csv";
+    //Read the multiple CSV file using a variable with their filename
+    filename = "/Users/sengw/Desktop/ICT 283/ICT283_Asignment2_Lim_Seng_Wei_34408441/codeblocks/data/" + token;
+    cout<<"READING NOW "<< filename<<endl;
     inputFile.open(filename.c_str());
 
     getline(inputFile,topline, '\n');
     stringstream firstrow ;
     firstrow<<topline;
 
-    while(getline(firstrow,token, ',')) //reading the first line of header information and save into another Vector
+    while(getline(firstrow,throwaway, ',')) //reading the first line of header information and save into another Vector
     {
 
-        column.Add(token);
+        column.Add(throwaway);
+        //cout<<"READING FIRST LINE "<<throwaway<<endl;
     }
 
 
@@ -57,13 +75,17 @@ void ReadCSVToVector(Vector<WindLogType> & windlog)
 
 
     {
+        try{
 
         //read the required data line by line and use appropriate setters
 
+        //cout<<"READING FIRST DATE "<<rows<<endl;
         int day1 = stoi(rows);
         w1.SetDay(day1);
 
+
         getline(inputFile,rows, '/');
+       //cout<<"READING FIRST MONTH "<<rows<<endl;
         int month1 = stoi(rows);
         w1.SetMonth(month1);
 
@@ -80,10 +102,10 @@ void ReadCSVToVector(Vector<WindLogType> & windlog)
         w1.SetMin(min1);
 
 
+
         for(int k = 0; k < 9; k++) //skip data columns that not required
         {
             getline(inputFile,rows, ',');
-
 
         }
 
@@ -109,13 +131,281 @@ void ReadCSVToVector(Vector<WindLogType> & windlog)
         inputFile >> w1;
 
         windlog.Add(w1); // add everything to Vector
+        //cout<<w1<<endl;
 
+        }
+
+        catch (std::invalid_argument &e)
+        {
+
+        }
+
+    }
+
+
+
+}
+
+
+
+void ReadCSVToMap(string token , multimap<int, WindLogType> &tempMap)
+{
+
+     multimap <int,WindLogType>::iterator itr;
+    Vector<string> column;
+
+    WindLogType w1;
+
+    string filename;
+    ifstream inputFile;
+    string topline;
+    string throwaway;
+    string rows;
+    int testKey = 1;
+
+    //Read the multiple CSV file using a variable with their filename
+    filename = "/Users/sengw/Desktop/ICT 283/ICT283_Asignment2_Lim_Seng_Wei_34408441/codeblocks/data/" + token;
+    cout<<"READING NOW "<< filename<<endl;
+    inputFile.open(filename.c_str());
+
+    if(!inputFile.is_open())
+    {
+        cout<<"FILE CANNOT OPEN BRO"<<endl;
+    }
+
+    getline(inputFile,topline, '\n');
+    stringstream firstrow ;
+    firstrow<<topline;
+
+    while(getline(firstrow,throwaway, ',')) //reading the first line of header information and save into another Vector
+    {
+
+        column.Add(throwaway);
+        //cout<<"READING FIRST LINE "<<throwaway<<endl;
+    }
+
+
+    while(getline(inputFile,rows,'/')) //reading the rest of the CSV from second line onwards
+
+
+    {
+        try{
+
+        //read the required data line by line and use appropriate setters
+
+        //cout<<"READING FIRST DATE "<<rows<<endl;
+        int day1 = stoi(rows);
+        w1.SetDay(day1);
+
+
+        getline(inputFile,rows, '/');
+       //cout<<"READING FIRST MONTH "<<rows<<endl;
+
+        int month1 = stoi(rows);
+        w1.SetMonth(month1);
+
+        getline(inputFile,rows, ' ');
+        int year1 = stoi(rows);
+        w1.SetYear(year1);
+
+        getline(inputFile,rows, ':');
+        int hour1 = stoi(rows);
+        w1.SetHour(hour1);
+
+        getline(inputFile,rows, ',');
+        int min1 = stoi(rows);
+        w1.SetMin(min1);
+
+
+
+        for(int k = 0; k < 9; k++) //skip data columns that not required
+        {
+            getline(inputFile,rows, ',');
+
+        }
+
+        getline(inputFile,rows, ','); //read speed column
+        float tempSpeed = stoi(rows);
+        w1.SetSpeed(tempSpeed);
+
+        getline(inputFile,rows, ','); //read SR column
+        float tempSR = stoi(rows);
+        w1.SetSolarRad(tempSR);
+
+        for(int p = 0; p < 5; p++) // skip unwanted columns
+        {
+
+            getline(inputFile,rows, ',');
+
+        }
+
+        getline(inputFile,rows);   // read temperature column
+        float temperature1 = stof(rows);
+        w1.SetTemp(temperature1);
+
+        inputFile >> w1;
+       //cout<< w1 <<endl;
+
+        //windlog.Add(w1); // add everything to Vector
+
+        //auto newKey = w1.GetDay() + "/" + w1.GetMonth() + "/" + w1.GetYear() + " " + w1.GetHour() + ":" + w1.GetMin();
+       tempMap.insert(pair<int,WindLogType>(testKey, w1));
+        //cout<<testKey<<endl;
+       testKey++;
+        //tempMap[testKey] = w1;
+
+       // logMap.insert(pair<int,WindLogType>(testKey,windlogTest));
+
+   /*    for(itr = tempMap.begin(); itr!= tempMap.end(); itr++)
+    {
+        cout<<"WINDLOG MAP TEST"<<endl;
+        cout<<itr->first << " " << itr->second<<endl;
+
+    }*/
+
+        }
+
+        catch (std::invalid_argument &e)
+        {
+
+        }
 
 
     }
 
 
 }
+
+void ReadCSVToPairMap(string token , multimap<pair<int,int>, WindLogType> &tempMap)
+{
+
+     multimap <pair<int,int>,WindLogType>::iterator itr;
+    Vector<string> column;
+
+    WindLogType w1;
+
+    string filename;
+    ifstream inputFile;
+    string topline;
+    string throwaway;
+    string rows;
+    int testKey = 1;
+
+    //Read the multiple CSV file using a variable with their filename
+    filename = "/Users/sengw/Desktop/ICT 283/ICT283_Asignment2_Lim_Seng_Wei_34408441/codeblocks/data/" + token;
+    cout<<"READING NOW "<< filename<<endl;
+    inputFile.open(filename.c_str());
+
+    if(!inputFile.is_open())
+    {
+        cout<<"FILE CANNOT OPEN BRO"<<endl;
+    }
+
+    getline(inputFile,topline, '\n');
+    stringstream firstrow ;
+    firstrow<<topline;
+
+    while(getline(firstrow,throwaway, ',')) //reading the first line of header information and save into another Vector
+    {
+
+        column.Add(throwaway);
+        //cout<<"READING FIRST LINE "<<throwaway<<endl;
+    }
+
+
+    while(getline(inputFile,rows,'/')) //reading the rest of the CSV from second line onwards
+
+
+    {
+        try{
+
+        //read the required data line by line and use appropriate setters
+
+        //cout<<"READING FIRST DATE "<<rows<<endl;
+        int day1 = stoi(rows);
+        w1.SetDay(day1);
+
+
+        getline(inputFile,rows, '/');
+       //cout<<"READING FIRST MONTH "<<rows<<endl;
+
+        int month1 = stoi(rows);
+        w1.SetMonth(month1);
+
+        getline(inputFile,rows, ' ');
+        int year1 = stoi(rows);
+        w1.SetYear(year1);
+
+        getline(inputFile,rows, ':');
+        int hour1 = stoi(rows);
+        w1.SetHour(hour1);
+
+        getline(inputFile,rows, ',');
+        int min1 = stoi(rows);
+        w1.SetMin(min1);
+
+
+
+        for(int k = 0; k < 9; k++) //skip data columns that not required
+        {
+            getline(inputFile,rows, ',');
+
+        }
+
+        getline(inputFile,rows, ','); //read speed column
+        float tempSpeed = stoi(rows);
+        w1.SetSpeed(tempSpeed);
+
+        getline(inputFile,rows, ','); //read SR column
+        float tempSR = stoi(rows);
+        w1.SetSolarRad(tempSR);
+
+        for(int p = 0; p < 5; p++) // skip unwanted columns
+        {
+
+            getline(inputFile,rows, ',');
+
+        }
+
+        getline(inputFile,rows);   // read temperature column
+        float temperature1 = stof(rows);
+        w1.SetTemp(temperature1);
+
+        inputFile >> w1;
+       //cout<< w1 <<endl;
+
+        //windlog.Add(w1); // add everything to Vector
+
+        //auto newKey = w1.GetDay() + "/" + w1.GetMonth() + "/" + w1.GetYear() + " " + w1.GetHour() + ":" + w1.GetMin();
+       tempMap.insert(make_pair(make_pair(w1.GetYear(),w1.GetMonth()),w1));
+
+
+        //cout<<testKey<<endl;
+       testKey++;
+        //tempMap[testKey] = w1;
+
+       // logMap.insert(pair<int,WindLogType>(testKey,windlogTest));
+
+   /*    for(itr = tempMap.begin(); itr!= tempMap.end(); itr++)
+    {
+        cout<<"WINDLOG MAP TEST"<<endl;
+        cout<<itr->first << " " << itr->second<<endl;
+
+    }*/
+
+        }
+
+        catch (std::invalid_argument &e)
+        {
+
+        }
+
+
+    }
+
+
+}
+
 void AvgSpeedAndTemp(Vector<WindLogType> & windlog)
 {
     int inputMonth;
@@ -147,6 +437,111 @@ void AvgSpeedAndTemp(Vector<WindLogType> & windlog)
 
 
     }
+
+    cout<<totalDataCount<<endl;
+
+    if (totalSpeed ==0 || totalTemp == 0)
+
+    {
+        cout<<"No Data"<<endl;
+    }
+
+    totalSpeed = totalSpeed *3.6; // Convert to KM/H
+    avgSpeed = totalSpeed/totalDataCount;
+    avgTemp = totalTemp/totalDataCount;
+
+
+    if (avgSpeed !=0 || avgTemp != 0) // check whether data is valid
+    {
+
+        cout<<month[inputMonth]<<" "<<inputYear<<" : "<<fixed<<setprecision(1)<< avgSpeed<<" km/h, "<<avgTemp<<" degrees C"<<'\n';
+    }
+
+
+}
+
+void AvgSpeedAndTempMap(multimap<int, WindLogType> &tempMap)
+{
+    int inputMonth;
+    int inputYear;
+    int totalSpeed=0;
+    float totalTemp=0;
+    int totalDataCount=0;
+    double avgSpeed = 0;
+    double avgTemp = 0;
+
+
+    cout<<"Please input month first"<<'\n';
+    cin>>inputMonth;
+    cout<<"Please input year, press ENTER once done"<<'\n';
+    cin>>inputYear;
+
+     for( auto itr = tempMap.begin(); itr!= tempMap.end(); ++itr)
+    {
+        if(inputYear == itr->second.GetYear() && inputMonth == itr->second.GetMonth())
+        {
+            totalSpeed = itr->second.GetSpeed() + totalSpeed;
+            totalTemp = itr->second.GetTemp() + totalTemp;
+            totalDataCount++;
+        }
+
+    }
+
+
+
+    cout<<totalDataCount<<endl;
+
+    if (totalSpeed ==0 || totalTemp == 0)
+
+    {
+        cout<<"No Data"<<endl;
+    }
+
+    totalSpeed = totalSpeed *3.6; // Convert to KM/H
+    avgSpeed = totalSpeed/totalDataCount;
+    avgTemp = totalTemp/totalDataCount;
+
+
+    if (avgSpeed !=0 || avgTemp != 0) // check whether data is valid
+    {
+
+        cout<<month[inputMonth]<<" "<<inputYear<<" : "<<fixed<<setprecision(1)<< avgSpeed<<" km/h, "<<avgTemp<<" degrees C"<<'\n';
+    }
+
+
+}
+
+void AvgSpeedAndTempMapPair(multimap<pair<int,int>, WindLogType> &tempMap)
+{
+    int inputMonth;
+    int inputYear;
+    int totalSpeed=0;
+    float totalTemp=0;
+    int totalDataCount=0;
+    double avgSpeed = 0;
+    double avgTemp = 0;
+
+
+    cout<<"Please input month first"<<'\n';
+    cin>>inputMonth;
+    cout<<"Please input year, press ENTER once done"<<'\n';
+    cin>>inputYear;
+
+     for( auto itr = tempMap.begin(); itr!= tempMap.end(); ++itr)
+    {
+
+        if(inputYear == itr->second.GetYear() && inputMonth == itr->second.GetMonth())
+        {
+            totalSpeed = itr->second.GetSpeed() + totalSpeed;
+            totalTemp = itr->second.GetTemp() + totalTemp;
+            totalDataCount++;
+        }
+
+    }
+
+
+
+    cout<<totalDataCount<<endl;
 
     if (totalSpeed ==0 || totalTemp == 0)
 
@@ -217,6 +612,54 @@ void MonthlyAvgSpeedAndTemp(Vector<WindLogType> & windlog)
 
 }
 
+void MonthlyAvgSpeedAndTempMap(multimap<pair<int,int>, WindLogType> &tempMap)
+{
+    double totalSpeedArr [13] = {0},totalTempArr[13] = {0},avgSpeedArr[13]= {0},avgTempArr[13]= {0}; // arrays to store the data by month, month = index
+    int totalDataCount[13]= {0}; // array to store the total line count                           // array is size 13 because index 0 will be unused
+    int monthCount=0; // variable to represent the month in the arrays
+    int inputYear;
+
+    cout<<"Please enter year"<<'\n';
+    cin>>inputYear;
+    cout<<'\n';
+    cout<<inputYear<<'\n';
+
+     for( auto itr = tempMap.begin(); itr!= tempMap.end(); ++itr)
+    {
+
+        if(inputYear == itr->second.GetYear())
+        {
+            monthCount = itr->second.GetMonth();
+            totalSpeedArr[monthCount]= itr->second.GetSpeed() + totalSpeedArr[monthCount]; // use the month as the index of the arrays
+            totalTempArr[monthCount] = itr->second.GetTemp() + totalTempArr[monthCount];
+            totalDataCount[monthCount]++; // keep track of total line items so can calculate average later
+        }
+
+    }
+
+
+    for(int x=1 ; x<13; x++) // X start from 1 to skip index 0 of month array
+    {
+        if(totalSpeedArr[x]!= 0 && totalTempArr[x]!= 0 ) // loop through arrays and check for valid data
+
+        {
+            totalSpeedArr[x] = totalSpeedArr[x] * 3.6; // convert to KM/H
+            avgSpeedArr[x] = totalSpeedArr[x] /totalDataCount[x];
+            avgTempArr[x] = totalTempArr[x] / totalDataCount[x];
+            cout<<month[x]<<": "<<fixed<<setprecision(1)<<avgSpeedArr[x]<<" km/h "<<avgTempArr[x]<<" Degrees C"<<endl;
+
+        }
+
+
+        if(totalSpeedArr[x]== 0 || totalTempArr[x]== 0 ) // if data is 0, output message
+        {
+            cout<<month[x]<<" : No Data"<<endl;
+        }
+    }
+
+}
+
+
 void MonthySolarRad(Vector<WindLogType> & windlog)
 {
     // arrays to store the data by month, month = index
@@ -254,6 +697,64 @@ void MonthySolarRad(Vector<WindLogType> & windlog)
         }
 
     }
+
+
+    for(int x=1 ; x<13; x++) // X start from 1 to skip index 0 of month array
+    {
+        if(totalSolarArr[x]!= 0) // check for valid data
+
+        {
+            totalSolarArr[x] = totalSolarArr[x] * wH /(1000); // Converting to kWh/m2
+            cout<<month[x]<<": "<<fixed<<setprecision(1)<<totalSolarArr[x]<<" kWh/m2 "<<endl;
+
+        }
+
+        if(totalSolarArr[x]== 0)
+        {
+
+
+            cout<<month[x]<<" : No Data"<<endl;
+        }
+
+    }
+
+}
+
+void MonthySolarRadMap(multimap<pair<int,int>, WindLogType> &tempMap)
+{
+    // arrays to store the data by month, month = index
+    // array is size 13 because index 0 will be unused
+    double totalSolarArr[13] = {0};
+    int monthCount=0;
+    int inputYear;
+    float wH = (1.0/6.0); // multiply w/m2 by 1/6 to get Wh
+
+
+
+    cout<<"Please enter year"<<'\n';
+    cin>>inputYear;
+
+    cout<<'\n';
+    cout<<inputYear<<'\n';
+
+
+    for( auto itr = tempMap.begin(); itr!= tempMap.end(); ++itr)
+    {
+
+        if(inputYear == itr->second.GetYear())
+        {
+            monthCount = itr->second.GetMonth();
+
+             if(itr->second.GetSolarRad()>=100) // only accept SR>=100 for calculation
+            {
+
+                    totalSolarArr[monthCount]= itr->second.GetSolarRad() + totalSolarArr[monthCount];
+        }
+
+    }
+
+    }
+
 
 
     for(int x=1 ; x<13; x++) // X start from 1 to skip index 0 of month array
@@ -355,16 +856,203 @@ void WriteToCSV(Vector<WindLogType> & windlog)
     ofile.close(); // close file
 }
 
+void WriteToCSVMap(multimap<pair<int,int>, WindLogType> &tempMap)
+{
+    // arrays to store the data by month, month = index
+    // array is size 13 because index 0 will be unused
+    double totalSpeedArr [13] = {0},totalTempArr[13] = {0},totalSolarArr[13]= {0},avgSpeedArr[13]= {0},avgTempArr[13]= {0};
+    int totalDataCount[13]= {0};
+    int monthCount=0;
+    int inputYear;
+    float wH = (1.0/6.0); // multiply w/m2 by 1/6 to get Wh
+    bool fileWritten = false; // boolean to check for file written status
+
+    ofstream ofile( "WindTempSolar.csv" ); // open file for writing
+
+    cout<<"Please enter year"<<'\n';
+    cin>>inputYear;
+
+    ofile<<inputYear<<'\n'; // write year to CSV first as first row
+
+     for( auto itr = tempMap.begin(); itr!= tempMap.end(); ++itr)
+    {
+
+        if(inputYear == itr->second.GetYear())
+        {
+            monthCount = itr->second.GetMonth();
+            totalSpeedArr[monthCount]= itr->second.GetSpeed() + totalSpeedArr[monthCount];
+            totalTempArr[monthCount] = itr->second.GetTemp() + totalTempArr[monthCount];
+            totalDataCount[monthCount]++;
+
+             if(itr->second.GetSolarRad()>=100) // only accept SR>=100 for calculation
+            {
+
+                    totalSolarArr[monthCount]= itr->second.GetSolarRad() + totalSolarArr[monthCount];
+        }
+
+    }
+
+    }
+
+
+
+    for(int x=1 ; x<13; x++) // X start from 1 to skip index 0 of month array
+    {
+        if(totalSpeedArr[x]!= 0 && totalTempArr[x]!= 0 && totalSolarArr[x]!= 0 ) // Check whether got data inside the arrays
+        {
+
+            totalSpeedArr[x] = totalSpeedArr[x] * 3.6; // convert to KM/H
+            avgSpeedArr[x] = totalSpeedArr[x] /totalDataCount[x];
+            avgTempArr[x] = totalTempArr[x] / totalDataCount[x];
+            totalSolarArr[x] = totalSolarArr[x] * wH /(1000); // converting to kWh/m2
+
+            ofile<<month[x]<<fixed<<setprecision(1)<<","<<avgSpeedArr[x]<<","<<avgTempArr[x]<<","<<totalSolarArr[x]<<'\n'; //++++
+
+            fileWritten = true; // valid data extracted and will be written, boolean change to true
+
+
+        }
+
+
+    }
+
+    if (fileWritten == true) // if true, output file written message
+    {
+        cout<<"Data written to WindTempSolar.csv"<<endl;
+    }
+
+    if (fileWritten == false) // if false, output no data available
+    {
+        cout<<"No data at year specified"<<endl;
+        cout<<"Please try again!"<<endl;
+        ofile<<"No Data"<<'\n';
+    }
+
+
+    ofile.close(); // close file
+}
+
 // Main program:
-int main22()
+int main()
 {
     Vector<WindLogType> windlog;
+     //multimap <int,WindLogType> logMap;
+    //multimap <int,WindLogType>::iterator itr;
+    multimap<pair<int,int>,WindLogType> multiLog;
+    multimap<pair<int,int>,WindLogType> logMap;
+    multimap<pair<int,int>,WindLogType> :: iterator itr;
 
-    ReadCSVToVector(windlog);
+   typedef multimap<pair<int,int>,WindLogType> :: iterator itr22; // working iterator for search that display all values of same key
 
-    int inputChoice =0;
+    WindLogType www;
+    www.SetDay(22);
+    www.SetMonth(11);
+    www.SetYear(2020);
 
-    while(inputChoice!=5) // exit menu loop when 5 is input
+    //multimap pair test insert and output
+    multiLog.insert(make_pair(make_pair(1,2011), www));
+    multiLog.insert(make_pair(make_pair(2,2011), www));
+    print(multiLog);
+
+
+    string filename;
+    ifstream inputFile;
+    string topline;
+    string token;
+    string rows;
+
+
+    filename = "/Users/sengw/Desktop/ICT 283/ICT283_Asignment2_Lim_Seng_Wei_34408441/codeblocks/data/met_index.txt";
+    inputFile.open(filename.c_str());
+
+ while(!inputFile.eof())
+         {
+              inputFile >> token;
+              //cout<<"File:" << token << endl;
+              //ReadCSVToMap(token,logMap);
+             //ReadCSVToVector(token,windlog);
+             ReadCSVToPairMap(token,logMap);
+
+         }
+
+        cout<<"MAP SIZE "<<logMap.size()<<endl;
+        //print(logMap);
+
+
+         //cout<<"Size:" << windlog.GetSize()<<endl;
+
+
+         //TEST OUTPUT
+   // for( auto itr = logMap.begin(); itr!= logMap.end(); ++itr)
+   //     {cout<<"WINDLOG MAP TEST"<<endl;
+  //  cout<<itr->first << " " << itr->second<<endl;}
+
+
+  //WORKING FIND FOR PAIR MULTIMAP, BUT CANNOT SHOW MULTIPLE VALUE OF SAME KEY///
+    itr = logMap.find(make_pair(2010,1));
+
+     if(itr == logMap.end())
+  {
+      cout<<"NOT FOUND"<<endl;
+  }
+
+  else
+
+  {
+      cout<<"FIND FUNCTION OUTPUT HERE! "<<  itr->second<<endl;
+  }
+/////////////////////////////WORKING FIND END///////////////////////////////////////////
+
+///////////////////////////FULL WORKING FIND, SHOW ALL VALUES OF SAME KEY//////////////////
+   pair<int,int> keyPair ;
+   keyPair.first = 2011;
+   keyPair.second = 2;
+
+    pair<itr22, itr22> result = logMap.equal_range(keyPair);
+
+    for(itr22 it=result.first; it!=result.second; it++)
+    {
+
+            cout<< it->second<<endl;
+
+
+    }
+
+///////////////////////////FULL WORKING FIND, SHOW ALL VALUES OF SAME KEY END//////////////////
+
+ /* auto it = logMap.find (1);
+
+  if(it == logMap.end())
+  {
+      cout<<"NOT FOUND"<<endl;
+  }
+
+  else
+  {
+      cout<<"FOUND THIS: "<< it->first<<" "<<it->second<<endl;
+  }
+
+*/
+
+// OUTPUT ALL VALUE WITH THE MATCHING KEY
+ /* for( auto itr = logMap.begin(); itr!= logMap.end(); ++itr)
+  {
+      if(itr->first == 999999)
+      {
+          cout<<"FOUND THIS: "<< itr->first<<" "<<itr->second<<endl;
+      }
+
+
+  }*/
+
+
+    //ReadCSVToVector(windlog);
+
+   int inputChoice =0;
+
+
+
+ /*  while(inputChoice!=5) // exit menu loop when 5 is input
     {
 
 
@@ -388,19 +1076,24 @@ int main22()
 
         case 1:
 
-            AvgSpeedAndTemp(windlog);
+            //AvgSpeedAndTempMap(logMap);
+            //AvgSpeedAndTemp(windlog);
+            AvgSpeedAndTempMapPair(logMap);
             break;
 
         case 2:
-            MonthlyAvgSpeedAndTemp(windlog);
+            //MonthlyAvgSpeedAndTemp(windlog);
+            MonthlyAvgSpeedAndTempMap(logMap);
             break;
 
         case 3:
-            MonthySolarRad(windlog);
+            //MonthySolarRad(windlog);
+            MonthySolarRadMap(logMap);
             break;
 
         case 4:
-            WriteToCSV(windlog);
+            //WriteToCSV(windlog);
+            WriteToCSVMap(logMap);
             break;
 
         case 5:
@@ -415,7 +1108,7 @@ int main22()
 
 
         }
-    }
+    } */
 
 
 
@@ -431,7 +1124,20 @@ istream &operator >>(istream & input, WindLogType & Te)
     return input;
 }
 
-ostream & operator <<( ostream & os, const WindLogType & Te )
+//////////////////PUT BACK IF GOT ERROR??///////////////////////////
+/*ostream& operator<<(ostream &out, const pair<int, int> &p) // Overloading operator for map pair output
+{
+    return out << p.first << " " << p.second;
+}*/
+
+/*bool operator<(pair<int, int> &a, pair<int, int> &b)
+{
+    if (a.first < b.first) return true;
+    else if ((a.first == b.first) && (a.second > b.second)) return true;
+    return false;
+}*/
+
+/*ostream & operator <<( ostream & os, const WindLogType & Te )
 {
     Date date;
     Time time;
@@ -442,5 +1148,5 @@ ostream & operator <<( ostream & os, const WindLogType & Te )
       <<" Temperature: "<<Te.GetTemp()<<'\n';
 
     return os;
-}
+}*/
 
