@@ -1,0 +1,24 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,208,56,235"/>
+<area shape="rect" id="node2" href="$_m_a_i_n_8_c_p_p.html#ab00896e56707d0b0a51acba06bc2598f" title=" " alt="" coords="127,157,262,184"/>
+<area shape="rect" id="node9" href="$_m_a_i_n_8_c_p_p.html#a3033f2c1fbcc5b356603c1682cb295f8" title=" " alt="" coords="104,107,285,133"/>
+<area shape="rect" id="node10" href="$_m_a_i_n_8_c_p_p.html#af9f45b7f27e40b428660e1a20e957832" title=" " alt="" coords="135,259,254,285"/>
+<area shape="rect" id="node12" href="$_m_a_i_n_8_c_p_p.html#af9ed55d7cc820e7205ad26e50d6b8320" title=" " alt="" coords="129,537,260,564"/>
+<area shape="rect" id="node22" href="$_m_a_i_n_8_c_p_p.html#a6212f8a365259d0e4748d51df07cf8c0" title=" " alt="" coords="147,208,242,235"/>
+<area shape="rect" id="node3" href="$class_vector.html#a496d574121188d3a09cbb2313fd3dcad" title="Getter for vector." alt="" coords="384,208,465,235"/>
+<area shape="rect" id="node4" href="$class_wind_log_type.html#a53f1c6379b634b673dd8d88ce8936c77" title="Getter for value of month." alt="" coords="341,259,508,285"/>
+<area shape="rect" id="node5" href="$class_vector.html#a0151d4cb23bc2c5474418beb125829ca" title="Getter for the array." alt="" coords="367,107,482,133"/>
+<area shape="rect" id="node6" href="$class_wind_log_type.html#a1eb5e26d87eb0a09bca2bcb9880c0626" title="Getter for value of speed." alt="" coords="341,5,508,32"/>
+<area shape="rect" id="node7" href="$class_wind_log_type.html#a544a8899ac97312b28cd50e37398c831" title="Getter for value of temperature." alt="" coords="343,56,506,83"/>
+<area shape="rect" id="node8" href="$class_wind_log_type.html#a2c45f0f9d64214be3b354c34cdb5dd28" title="Getter for value of year." alt="" coords="346,157,503,184"/>
+<area shape="rect" id="node11" href="$class_wind_log_type.html#a595fd82d06223f728a21736b514e31d0" title="Getter for value of solar radiation." alt="" coords="333,309,516,336"/>
+<area shape="rect" id="node13" href="$class_vector.html#a68a2cdd7be715662e1e8ef0ed04d14bb" title="Add element to the next available index of the array." alt="" coords="379,512,470,539"/>
+<area shape="rect" id="node14" href="$class_wind_log_type.html#a15e27efc2737cf016b9faaf9ad6ded5d" title="Setter for day." alt="" coords="349,563,501,589"/>
+<area shape="rect" id="node15" href="$class_wind_log_type.html#aac710926cfea89788e465fd8ba0d79c2" title="Setter for hour." alt="" coords="347,613,503,640"/>
+<area shape="rect" id="node16" href="$class_wind_log_type.html#a398fe482a2f4cbaac3b31d81b5cbba65" title="Setter for minute." alt="" coords="349,664,500,691"/>
+<area shape="rect" id="node17" href="$class_wind_log_type.html#a39f4abd28ed1036ad9c75739a6728723" title="Setter for month." alt="" coords="342,715,507,741"/>
+<area shape="rect" id="node18" href="$class_wind_log_type.html#a69652dbaa9c74bdeb4f9fa0d7323cba4" title="Setter for solar radiation." alt="" coords="333,765,516,792"/>
+<area shape="rect" id="node19" href="$class_wind_log_type.html#ae2e1498b888a9e2e68fdd746dd162212" title="Setter for speed." alt="" coords="341,360,508,387"/>
+<area shape="rect" id="node20" href="$class_wind_log_type.html#ac8c244213720a3d179822f2adaf578ce" title="Setter for temperature." alt="" coords="344,411,505,437"/>
+<area shape="rect" id="node21" href="$class_wind_log_type.html#a5ff7f49aa83efd873eba8d564d804bd4" title="Setter for year." alt="" coords="347,461,503,488"/>
+</map>

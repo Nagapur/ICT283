@@ -1,0 +1,8 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,91,133"/>
+<area shape="rect" id="node2" href="$class_wind_log_type.html#ac333b2b81d7610b6aa00de46de72e4b6" title="Getter for Date object." alt="" coords="151,5,309,32"/>
+<area shape="rect" id="node3" href="$class_wind_log_type.html#a595fd82d06223f728a21736b514e31d0" title="Getter for value of solar radiation." alt="" coords="139,56,321,83"/>
+<area shape="rect" id="node4" href="$class_wind_log_type.html#a1eb5e26d87eb0a09bca2bcb9880c0626" title="Getter for value of speed." alt="" coords="147,107,313,133"/>
+<area shape="rect" id="node5" href="$class_wind_log_type.html#a544a8899ac97312b28cd50e37398c831" title="Getter for value of temperature." alt="" coords="149,157,311,184"/>
+<area shape="rect" id="node6" href="$class_wind_log_type.html#ac1c75431a635e0f82d068ce1469ee3eb" title="Getter for Time object." alt="" coords="151,208,309,235"/>
+</map>

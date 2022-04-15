@@ -1,0 +1,142 @@
+Lec 01:
+Agile programming
+Minimal but complete
+Unit test
+User interface
+
+Lec 02:
+UML
+Dependency
+Composition
+Aggregation
+Specialisation
+
+Lec 03:
+Classes
+
+Lec 04:
+if,else,switch,while
+
+Lec 05:
+Pointers
+Memory/Memory leaks
+
+Lec 06:
+Parameters
+Pass by reference
+Pass by pointer
+
+Lec 07:
+Arrays/Recrords
+2D array
+
+Lec 08:
+Char functions
+Strings
+NULL
+
+Lec 09:
+STL/String & input output
+String methods
+
+Lec 10:
+Complexity,STL Vectors and Iterators
+STL vecotr method
+Iterator usage
+STL deque class
+
+Lec 11:
+UML
+Data dictionary
+Association
+Inheritance
+Composition
+Aggregation
+
+Lec 12:
+Unit testing using Light class
+
+Lec 13:
+Completing the Minimal and Complete Class
+Shallow vs Deep copy - Slide 19
+
+Lec 14:
+Constructors/Destructors
+Inheritance/Parameters
+Virtual methods
+
+Lec 15:
+Linked list
+Templates
+Aggregation/Composition
+Design change for light class
+
+Lec 16:
+Abstract classes
+uses of abstract class
+Interface
+
+Lec 17:
+Encapsulation/Link list
+Array vs lists
+when to encapsulate?
+STL list methods
+Encapsulation Advantages
+
+Lec 18:
+2D structures
+Array of vector
+vector of array
+array of list
+
+Lec 19:
+Sets
+Union
+Intersection
+Difference
+STL SET
+
+Lec 20:
+Maps
+
+Lec 21:
+Stacks
+
+Lec 22:
+Queue
+STL Queue
+
+Lec 23:
+Stack example
+
+Lec 25:
+Searching,Merging,Sorting
+Binary Search
+Iteration vs recursive
+
+Lec 26:
+Sorting Algo
+Bubble
+Merge sort ( Slide 81)
+Quick sort (Slide 181)
+
+Lec 27:
+Empirical Comparisons, and the STL Sorts
+Overload < operator (Slide 9)
+
+Lec 28:
+Trees and tree searching
+Traversals
+
+Lec 29:
+Binary Search trees
+BST problem (Slide 18)
+AVL tree
+
+Lec 30:
+Multiway tree
+B tree
+Multiway tree vs B Tree
+B+Tree
+B tree vs B+tree
+Handling wasted space (Slide 26)

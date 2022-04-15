@@ -1,0 +1,9 @@
+<map id="MonthlyAvgSpeedAndTemp" name="MonthlyAvgSpeedAndTemp">
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,187,159"/>
+<area shape="rect" id="node2" href="$class_vector.html#a496d574121188d3a09cbb2313fd3dcad" title="Getter for vector." alt="" coords="277,5,359,32"/>
+<area shape="rect" id="node3" href="$class_wind_log_type.html#a53f1c6379b634b673dd8d88ce8936c77" title="Getter for value of month." alt="" coords="235,56,401,83"/>
+<area shape="rect" id="node4" href="$class_vector.html#a0151d4cb23bc2c5474418beb125829ca" title="Getter for the array." alt="" coords="261,107,375,133"/>
+<area shape="rect" id="node5" href="$class_wind_log_type.html#a1eb5e26d87eb0a09bca2bcb9880c0626" title="Getter for value of speed." alt="" coords="235,157,401,184"/>
+<area shape="rect" id="node6" href="$class_wind_log_type.html#a544a8899ac97312b28cd50e37398c831" title="Getter for value of temperature." alt="" coords="237,208,399,235"/>
+<area shape="rect" id="node7" href="$class_wind_log_type.html#a2c45f0f9d64214be3b354c34cdb5dd28" title="Getter for value of year." alt="" coords="239,259,397,285"/>
+</map>
